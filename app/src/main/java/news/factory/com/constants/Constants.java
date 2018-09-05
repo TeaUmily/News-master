@@ -12,10 +12,21 @@ public class Constants {
 
     public static final String ARTICLE_TYPE = "clanak";
 
-    public static final String PAGE_NUMBER = "2" ;
+    public static final String PAGE_NUMBER = "1" ;
 
     public static final String ARTICLE_TYPE_IMAGE = "image";
 
     public static final String ARTICLE_TYPE_TEXT = "text";
+
+    public static final String ARTICLE_PAGE_NUMBER = "1";
+
+    public static final String ARTICLE_FEATURED_IMAGE = "FALSE";
+
+    public static final int ARTICLE_VIEW_TYPE_TEXT = 0 ;
+
+    public static final int ARTICLE_VIEW_TYPE_IMAGE = 1;
+
+    public static final int ARTICLE_VIEW_TYPE_TITLE = 2;
+
 
 }

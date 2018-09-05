@@ -1,7 +1,7 @@
 package news.factory.com.networking;
 
 
-import news.factory.com.model.Article;
+import news.factory.com.article.model.Article;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
