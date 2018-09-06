@@ -5,8 +5,6 @@ import android.app.Application;
 import com.maradroid.dummyresponsegenerator.base.interactor.InteractorImpl;
 import com.maradroid.dummyresponsegenerator.utils.SharedPerfRepo;
 
-import news.factory.com.interaction.ArticleInteractor;
-import news.factory.com.interaction.ArticleInteractorImpl;
 import news.factory.com.networking.ApiService;
 import news.factory.com.networking.RetrofitUtil;
 import retrofit2.Retrofit;
@@ -14,7 +12,7 @@ import retrofit2.Retrofit;
 public class App extends Application {
 
     private static App sInstance;
-    private static ApiService mApiService;
+    private static ApiService apiService;
 
     @Override
     public void onCreate() {
@@ -23,7 +21,7 @@ public class App extends Application {
         sInstance= this;
 
         final Retrofit retrofit = RetrofitUtil.createRetrofit();
-        mApiService = retrofit.create(ApiService.class);
+        apiService = retrofit.create(ApiService.class);
 
         new InteractorImpl(this).generateResponses(true);
         new SharedPerfRepo(this).setDummyResponse(true);
@@ -34,7 +32,7 @@ public class App extends Application {
     }
 
     public static ApiService getApiService() {
-        return mApiService;
+        return apiService;
     }
 
 }

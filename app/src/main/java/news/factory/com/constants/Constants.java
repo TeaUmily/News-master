@@ -22,11 +22,5 @@ public class Constants {
 
     public static final String ARTICLE_FEATURED_IMAGE = "FALSE";
 
-    public static final int ARTICLE_VIEW_TYPE_TEXT = 0 ;
-
-    public static final int ARTICLE_VIEW_TYPE_IMAGE = 1;
-
-    public static final int ARTICLE_VIEW_TYPE_TITLE = 2;
-
 
 }
