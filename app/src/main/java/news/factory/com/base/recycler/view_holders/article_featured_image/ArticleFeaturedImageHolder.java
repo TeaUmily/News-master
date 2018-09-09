@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base.recycler.RecyclerWrapper;
-import news.factory.com.base.recycler.view_holders.article_image.ArticleImageData;
 import news.factory.com.constants.Constants;
 
 public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
@@ -27,6 +26,9 @@ public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.source_textView)
     TextView source;
+
+    @BindView(R.id.caption_textView)
+    TextView caption;
 
     private List<RecyclerWrapper> dataList;
 
@@ -42,7 +44,8 @@ public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
             ArticleFeaturedImageData data = (ArticleFeaturedImageData) dataList.get(position).getData();
             Glide.with(App.getInstance()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
             category.setText(data.getCategory());
-            source.setText(data.getSource());
+            source.setText("Source: " + data.getSource());
+            caption.setText(data.getCaption());
         }
     }
 }

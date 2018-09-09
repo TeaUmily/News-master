@@ -10,15 +10,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.article_fragment.contract.ArticleDisplayContract;
-import news.factory.com.base.recycler.RecyclerAdapter;
+import news.factory.com.base.recycler.DividerItemDecoration;
+import news.factory.com.base.recycler.adapter.RecyclerAdapter;
 import news.factory.com.base.recycler.RecyclerWrapper;
 import news.factory.com.constants.Constants;
 import news.factory.com.article_fragment.presenter.ArticlePresenter;
@@ -57,12 +58,13 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         mPresenter = new ArticlePresenter(this);
         mAdapter = new RecyclerAdapter();
 
+
+        recyclerView.addItemDecoration(new DividerItemDecoration());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
         getArticle();
-
     }
 
     private void getArticle() {

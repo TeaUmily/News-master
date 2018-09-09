@@ -6,11 +6,13 @@ public class ArticleFeaturedImageData {
     private String image;
     private String category;
     private String source;
+    private String caption;
 
-    public ArticleFeaturedImageData(String image, String category, String source) {
+    public ArticleFeaturedImageData(String image, String category, String source, String caption) {
         this.image = image;
         this.category = category;
         this.source = source;
+        this.caption = caption;
     }
 
     public String getImage() {
@@ -23,5 +25,9 @@ public class ArticleFeaturedImageData {
 
     public String getSource() {
         return source;
+    }
+
+    public String getCaption() {
+        return caption;
     }
 }

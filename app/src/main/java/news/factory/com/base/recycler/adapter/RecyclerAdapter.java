@@ -1,4 +1,4 @@
-package news.factory.com.base.recycler;
+package news.factory.com.base.recycler.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,10 +9,15 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import news.factory.com.base.recycler.RecyclerWrapper;
+import news.factory.com.base.recycler.view_holders.article_author_shares.ArticleAuthorAndSharesHolder;
 import news.factory.com.base.recycler.view_holders.article_featured_image.ArticleFeaturedImageHolder;
 import news.factory.com.base.recycler.view_holders.article_image.ArticleImageHolder;
+import news.factory.com.base.recycler.view_holders.article_page_indicator.ArticlePageIndicatorHolder;
+import news.factory.com.base.recycler.view_holders.article_publication_date.ArticlePublicationDateHolder;
 import news.factory.com.base.recycler.view_holders.article_text.ArticleTextHolder;
 import news.factory.com.base.recycler.view_holders.article_title.ArticleTitleHolder;
+import news.factory.com.base.recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
@@ -48,6 +53,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             case RecyclerWrapper.TYPE_TITLE:
                 return new ArticleTitleHolder(view, dataList);
 
+            case RecyclerWrapper.TYPE_UPPER_TITLE:
+                return new ArticleUpperTitleHolder(view, dataList);
+
+            case RecyclerWrapper.TYPE_AUTHOR:
+                return new ArticleAuthorAndSharesHolder(view, dataList);
+
+            case RecyclerWrapper.TYPE_PUBLICATION_DATE:
+                return new ArticlePublicationDateHolder(view, dataList);
+
+            case RecyclerWrapper.TYPE_PAGE_INDICATOR:
+                return new ArticlePageIndicatorHolder(view, dataList);
+
             default: return new EmptyViewHolder(new View(parent.getContext()));
         }
     }
@@ -76,6 +93,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 titleHolder.onBind(position);
                 break;
 
+            case RecyclerWrapper.TYPE_UPPER_TITLE:
+                ArticleUpperTitleHolder upperTitleHolder = (ArticleUpperTitleHolder) holder;
+                upperTitleHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_AUTHOR:
+                ArticleAuthorAndSharesHolder authorHolder = (ArticleAuthorAndSharesHolder) holder;
+                authorHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_PUBLICATION_DATE:
+                ArticlePublicationDateHolder dateHolder = (ArticlePublicationDateHolder) holder;
+                dateHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_PAGE_INDICATOR:
+                ArticlePageIndicatorHolder counterHolder = (ArticlePageIndicatorHolder) holder;
+                counterHolder.onBind(position);
+                break;
+
         }
     }
 
@@ -92,12 +129,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
     class EmptyViewHolder extends RecyclerView.ViewHolder{
-
         public EmptyViewHolder(View itemView) {
             super(itemView);
         }
     }
-
 
 }
 

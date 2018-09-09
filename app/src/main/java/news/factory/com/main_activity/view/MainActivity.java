@@ -19,9 +19,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     @BindView(R.id.main_activity_view_pager)
     ViewPager viewPager;
 
-    private CustomViewPagerFragmentAdapter mAdapter;
-
-    private MainActivityContract.Presenter mPresenter;
+    private CustomViewPagerFragmentAdapter adapter;
+    private MainActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +28,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mPresenter = new MainActivityPresenter(this);
+        presenter = new MainActivityPresenter(this);
 
-        mPresenter.getNumberOfPages();
+        presenter.getNumberOfPages();
     }
 
     @Override
     public void setAdapter(Integer pages_no) {
-        this.mAdapter = new CustomViewPagerFragmentAdapter(getSupportFragmentManager());
-        mAdapter.setSize(pages_no);
-        viewPager.setAdapter(mAdapter);
+        this.adapter = new CustomViewPagerFragmentAdapter(getSupportFragmentManager());
+        adapter.setSize(pages_no);
+        viewPager.setAdapter(adapter);
     }
 }

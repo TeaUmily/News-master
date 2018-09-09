@@ -8,6 +8,10 @@ public class RecyclerWrapper {
     public static final int TYPE_TEXT = R.layout.cell_article_text;
     public static final int TYPE_IMAGE = R.layout.cell_article_image;
     public static final int TYPE_FEATURED_IMAGE = R.layout.cell_article_featured_image;
+    public static final int TYPE_UPPER_TITLE = R.layout.cell_article_upper_title;
+    public static final int TYPE_AUTHOR = R.layout.cell_article_author_shares;
+    public static final int TYPE_PUBLICATION_DATE = R.layout.cell_article_publication_date;
+    public static final int TYPE_PAGE_INDICATOR = R.layout.cell_page_indicator;
 
     private Object data;
     private int type;
@@ -24,7 +28,6 @@ public class RecyclerWrapper {
     public Object getData() {
         return data;
     }
-
     public int getType() {
         return type;
     }

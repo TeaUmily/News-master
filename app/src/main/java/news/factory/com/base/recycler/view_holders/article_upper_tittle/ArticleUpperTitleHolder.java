@@ -1,7 +1,6 @@
-package news.factory.com.base.recycler.view_holders.article_text;
+package news.factory.com.base.recycler.view_holders.article_upper_tittle;
 
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,13 +11,15 @@ import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.recycler.RecyclerWrapper;
 
-public class ArticleTextHolder extends RecyclerView.ViewHolder{
 
-    @BindView(R.id.textView_item_article)TextView text;
+public class ArticleUpperTitleHolder extends RecyclerView.ViewHolder {
+
+    @BindView(R.id.upper_title_textView)
+    TextView upperTittle;
 
     private List<RecyclerWrapper> dataList;
 
-    public ArticleTextHolder(View itemView, List<RecyclerWrapper> dataList) {
+    public ArticleUpperTitleHolder(View itemView, List<RecyclerWrapper> dataList) {
         super(itemView);
         this.dataList = dataList;
         ButterKnife.bind(this, itemView);
@@ -26,8 +27,8 @@ public class ArticleTextHolder extends RecyclerView.ViewHolder{
 
     public void onBind(int position) {
         if (position != RecyclerView.NO_POSITION) {
-            ArticleTextData data = (ArticleTextData) dataList.get(position).getData();
-            text.setText(Html.fromHtml(data.getText()));
+            ArticleUpperTitleData data = (ArticleUpperTitleData) dataList.get(position).getData();
+            upperTittle.setText(data.getUpperTitle());
         }
     }
 }

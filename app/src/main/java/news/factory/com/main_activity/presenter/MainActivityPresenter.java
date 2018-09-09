@@ -1,6 +1,5 @@
 package news.factory.com.main_activity.presenter;
 
-
 import news.factory.com.App;
 import news.factory.com.interaction.ArticleInteractor;
 import news.factory.com.interaction.ArticleInteractorImpl;
@@ -30,6 +29,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Ne
 
         Article article = (Article) callback;
         mainActivityView.setAdapter(Integer.valueOf(article.getPages_no()));
+
     }
 
     @Override
