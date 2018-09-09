@@ -19,10 +19,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\Terezija\AndroidStudioProjects\praksa\ic_clock.png" />
-                                      <entry key="outputName" value="ic_clock" />
-                                      <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="101010" />
+                                      <entry key="imageAsset" value="C:\Users\Terezija\AndroidStudioProjects\praksa\ic_floating_back.png" />
+                                      <entry key="outputName" value="ic_floating_back" />
+                                      <entry key="themeColor" value="ffffff" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -57,12 +56,26 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\Terezija\AndroidStudioProjects\praksa\ic_floating_back.png" />
+                                      <entry key="outputName" value="ic_floating_back" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                             <entry key="notification">
                               <value>
                                 <PersistentState>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\Terezija\AndroidStudioProjects\praksa\ic_floating_back.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
