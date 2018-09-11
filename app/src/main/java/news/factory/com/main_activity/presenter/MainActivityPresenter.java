@@ -1,7 +1,7 @@
 package news.factory.com.main_activity.presenter;
 
 import news.factory.com.App;
-import news.factory.com.baseInteractor.InteractorWrapper;
+import news.factory.com.base_interactor.InteractorWrapper;
 import news.factory.com.interaction.ArticleInteractor;
 import news.factory.com.interaction.ArticleInteractorImpl;
 import news.factory.com.constants.Constants;

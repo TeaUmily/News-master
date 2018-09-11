@@ -17,9 +17,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.article_fragment.contract.ArticleDisplayContract;
-import news.factory.com.base.recycler.DividerItemDecoration;
-import news.factory.com.base.recycler.adapter.RecyclerAdapter;
-import news.factory.com.base.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.recycler.DividerItemDecoration;
+import news.factory.com.base_recycler.recycler.adapter.RecyclerAdapter;
+import news.factory.com.base_recycler.recycler.RecyclerWrapper;
 import news.factory.com.constants.Constants;
 import news.factory.com.article_fragment.presenter.ArticlePresenter;
 

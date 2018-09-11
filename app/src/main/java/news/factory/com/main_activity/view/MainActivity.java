@@ -11,7 +11,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
 import news.factory.com.R;
-import news.factory.com.baseInteractor.DisposableManager;
 import news.factory.com.main_activity.adapter.CustomViewPagerFragmentAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.main_activity.presenter.MainActivityPresenter;

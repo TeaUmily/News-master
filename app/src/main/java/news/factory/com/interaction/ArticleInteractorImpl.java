@@ -4,7 +4,7 @@ package news.factory.com.interaction;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import news.factory.com.baseInteractor.BaseInteractor;
+import news.factory.com.base_interactor.BaseInteractor;
 import news.factory.com.model.Article;
 import news.factory.com.networking.ApiService;
 import news.factory.com.networking.NetworkResponseListener;
