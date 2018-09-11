@@ -69,19 +69,26 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     public void setNavigationButtons(int index, int numOfItems){
-
-        if (index == 0){
-            backwardNav.setVisibility(View.GONE);
-            forwardNav.setVisibility(View.VISIBLE);
-        }
-        else if (index==numOfItems-1){
-            backwardNav.setVisibility(View.VISIBLE);
-            forwardNav.setVisibility(View.GONE);
+        if(numOfItems > 1){
+            if (index == 0){
+                backwardNav.setVisibility(View.GONE);
+                forwardNav.setVisibility(View.VISIBLE);
+            }
+            else if (index==numOfItems-1){
+                backwardNav.setVisibility(View.VISIBLE);
+                forwardNav.setVisibility(View.GONE);
+            }
+            else{
+                backwardNav.setVisibility(View.VISIBLE);
+                forwardNav.setVisibility(View.VISIBLE);
+            }
         }
         else{
-            backwardNav.setVisibility(View.VISIBLE);
-            forwardNav.setVisibility(View.VISIBLE);
+            backwardNav.setVisibility(View.GONE);
+            forwardNav.setVisibility(View.GONE);
         }
+
+
     }
 
 

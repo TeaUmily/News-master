@@ -5,13 +5,16 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import news.factory.com.App;
+import news.factory.com.R;
+
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
 
     private final int verticalSpaceHeight;
 
     public DividerItemDecoration() {
-        this.verticalSpaceHeight = 16;
+        this.verticalSpaceHeight = (int) App.getInstance().getResources().getDimension(R.dimen.divider_space_height) ;
     }
 
     @Override
@@ -22,8 +25,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             outRect.bottom = verticalSpaceHeight;
         }
     }
-
-
 
 
 }

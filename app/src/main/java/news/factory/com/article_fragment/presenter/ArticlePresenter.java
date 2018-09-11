@@ -58,8 +58,14 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
         if(!article.getNo_featured_image().equals(Constants.ARTICLE_FEATURED_IMAGE)){
            recyclerWrappers.add(new RecyclerWrapper(new ArticleFeaturedImageData(article.getFeatured_image().getOriginal(), article.getCategory(), article.getFeatured_image_source(), article.getFeatured_image_caption()),RecyclerWrapper.TYPE_FEATURED_IMAGE));
         }
+        else{
+            recyclerWrappers.add(new RecyclerWrapper(new ArticleFeaturedImageData(article.getCategory(), article.getFeatured_image_source(), article.getFeatured_image_caption()),RecyclerWrapper.TYPE_FEATURED_IMAGE));
+        }
 
-        recyclerWrappers.add(new RecyclerWrapper(new ArticleUpperTitleData(article.getUppertitle()), RecyclerWrapper.TYPE_UPPER_TITLE));
+        if(!article.getUppertitle().isEmpty()){
+            recyclerWrappers.add(new RecyclerWrapper(new ArticleUpperTitleData(article.getUppertitle()), RecyclerWrapper.TYPE_UPPER_TITLE));
+        }
+
         recyclerWrappers.add(new RecyclerWrapper(new ArticleAuthorAndSharesData(article.getAuthor(), article.getShares()), RecyclerWrapper.TYPE_AUTHOR));
         recyclerWrappers.add(new RecyclerWrapper(new ArticleTitleData(article.getTitle()), RecyclerWrapper.TYPE_TITLE));
 

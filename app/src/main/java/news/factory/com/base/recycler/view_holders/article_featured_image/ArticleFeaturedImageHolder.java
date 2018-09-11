@@ -42,10 +42,31 @@ public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
     public void onBind(int position) {
         if (position != RecyclerView.NO_POSITION) {
             ArticleFeaturedImageData data = (ArticleFeaturedImageData) dataList.get(position).getData();
-            Glide.with(App.getInstance()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
+
+            if(!data.getImage().isEmpty()){
+                Glide.with(App.getInstance()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
+            }
+            else{
+                source.setTextColor(App.getInstance().getResources().getColor(R.color.black));
+                caption.setTextColor(App.getInstance().getResources().getColor(R.color.black));
+            }
+
             category.setText(data.getCategory());
-            source.setText("Source: " + data.getSource());
-            caption.setText(data.getCaption());
+
+            if(!data.getSource().isEmpty()){
+                source.setText(App.getInstance().getResources().getString(R.string.source,data.getSource()));
+            }
+            else{
+                source.setVisibility(View.GONE);
+            }
+
+            if(!data.getCaption().isEmpty()){
+                caption.setText(data.getCaption());
+            }
+            else {
+                caption.setVisibility(View.GONE);
+            }
+
         }
     }
 }

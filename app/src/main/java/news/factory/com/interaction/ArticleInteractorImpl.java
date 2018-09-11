@@ -1,6 +1,10 @@
 package news.factory.com.interaction;
 
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import news.factory.com.model.Article;
 import news.factory.com.networking.ApiService;
 import news.factory.com.networking.NetworkResponseListener;
@@ -18,21 +22,29 @@ public class ArticleInteractorImpl implements ArticleInteractor {
 
     @Override
     public void getArticle(final NetworkResponseListener<Article> listener, String Token, String PageNumber, String ArticleId, String ArticleType) {
-        apiService.getArticle(ArticleType, ArticleId, Token, PageNumber).enqueue(new Callback<Article>() {
-
+        apiService.getArticle(ArticleType, ArticleId, Token, PageNumber).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<Article>() {
             @Override
-            public void onResponse(Call<Article> call, Response<Article> response) {
-                if (response.body()!=null && response.isSuccessful()){
-                    Article article= response.body();
-                    listener.onSuccess(article);
-                }
+            public void onSubscribe(Disposable d) {
+
             }
 
             @Override
-            public void onFailure(Call<Article> call, Throwable t) {
-                listener.onFailure(t);
+            public void onNext(Article article) {
+                listener.onSuccess(article);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                listener.onFailure(e);
+            }
+
+            @Override
+            public void onComplete() {
+
             }
         });
+
     }
 
 }

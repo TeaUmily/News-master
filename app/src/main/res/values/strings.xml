@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">News</string>
-    <string name="published">Objavljeno:</string>
+    <string name="published">Objavljeno: </string>
+    <string name="source">Source: %s</string>
 </resources>

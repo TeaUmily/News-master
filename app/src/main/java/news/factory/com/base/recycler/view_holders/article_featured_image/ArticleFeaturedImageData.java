@@ -1,5 +1,6 @@
 package news.factory.com.base.recycler.view_holders.article_featured_image;
 
+
 public class ArticleFeaturedImageData {
 
 
@@ -10,6 +11,12 @@ public class ArticleFeaturedImageData {
 
     public ArticleFeaturedImageData(String image, String category, String source, String caption) {
         this.image = image;
+        this.category = category;
+        this.source = source;
+        this.caption = caption;
+    }
+
+    public ArticleFeaturedImageData(String category, String source, String caption) {
         this.category = category;
         this.source = source;
         this.caption = caption;

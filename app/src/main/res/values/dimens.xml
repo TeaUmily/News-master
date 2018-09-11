@@ -5,4 +5,5 @@
     <dimen name="article_title_font">30sp</dimen>
     <dimen name="side_padding_text_cell">16dp</dimen>
     <dimen name="normal_text_size">18dp</dimen>
+    <dimen name="divider_space_height">16dp</dimen>
 </resources>
