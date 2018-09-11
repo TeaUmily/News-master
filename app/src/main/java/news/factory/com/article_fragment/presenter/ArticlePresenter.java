@@ -14,6 +14,8 @@ import news.factory.com.base.recycler.view_holders.article_publication_date.Arti
 import news.factory.com.base.recycler.view_holders.article_text.ArticleTextData;
 import news.factory.com.base.recycler.view_holders.article_title.ArticleTitleData;
 import news.factory.com.base.recycler.view_holders.article_upper_tittle.ArticleUpperTitleData;
+import news.factory.com.baseInteractor.DisposableManager;
+import news.factory.com.baseInteractor.InteractorWrapper;
 import news.factory.com.model.Content;
 import news.factory.com.interaction.ArticleInteractor;
 import news.factory.com.interaction.ArticleInteractorImpl;
@@ -27,11 +29,13 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     private ArticleInteractor interactor;
     private ArticleDisplayContract.View articleFragmentView;
     private String articlePageNumber;
+    private DisposableManager disposableManager;
 
 
     public ArticlePresenter(ArticleDisplayContract.View mArticleFragmentView) {
         this.articleFragmentView = mArticleFragmentView;
-        this.interactor = new ArticleInteractorImpl(App.getApiService());
+        this.interactor = new ArticleInteractorImpl(this,App.getApiService());
+        this.disposableManager = new DisposableManager();
     }
 
     @Override
@@ -41,8 +45,15 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     }
 
     @Override
-    public void onSuccess(Object callback) {
-        Article article = (Article) callback;
+    public void clearDisposable() {
+        disposableManager.clear();
+    }
+
+
+    @Override
+    public void onSuccess(InteractorWrapper callback) {
+        Article article = (Article) callback.getData();
+        disposableManager.add(interactor.getObserver());
         articleFragmentView.showArticle(getArticleMappedList(article));
     }
 
@@ -85,4 +96,5 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
 
         return recyclerWrappers;
     }
+
 }

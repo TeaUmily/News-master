@@ -1,6 +1,7 @@
 package news.factory.com.main_activity.presenter;
 
 import news.factory.com.App;
+import news.factory.com.baseInteractor.InteractorWrapper;
 import news.factory.com.interaction.ArticleInteractor;
 import news.factory.com.interaction.ArticleInteractorImpl;
 import news.factory.com.constants.Constants;
@@ -16,7 +17,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Ne
 
     public MainActivityPresenter(MainActivityContract.View mMainActivityView) {
         this.mainActivityView = mMainActivityView;
-        this.interactor = new ArticleInteractorImpl(App.getApiService());
+        this.interactor = new ArticleInteractorImpl(this,App.getApiService());
     }
 
     @Override
@@ -25,9 +26,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Ne
     }
 
     @Override
-    public void onSuccess(Object callback) {
+    public void onSuccess(InteractorWrapper callback) {
 
-        Article article = (Article) callback;
+        Article article = (Article) callback.getData();
         mainActivityView.setAdapter(Integer.valueOf(article.getPages_no()));
 
     }

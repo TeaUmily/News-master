@@ -15,7 +15,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.article_fragment.contract.ArticleDisplayContract;
 import news.factory.com.base.recycler.DividerItemDecoration;
@@ -30,8 +29,8 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
     @BindView(R.id.recyclerView_article)
     RecyclerView recyclerView;
 
-    private ArticleDisplayContract.Presenter mPresenter;
-    private RecyclerAdapter mAdapter;
+    private ArticleDisplayContract.Presenter presenter;
+    private RecyclerAdapter adapter;
 
 
     public static ArticleFragment newInstance(int articleNumber) {
@@ -55,28 +54,32 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        mPresenter = new ArticlePresenter(this);
-        mAdapter = new RecyclerAdapter();
+        presenter = new ArticlePresenter(this);
+        adapter = new RecyclerAdapter();
 
 
         recyclerView.addItemDecoration(new DividerItemDecoration());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(adapter);
 
         getArticle();
     }
 
     private void getArticle() {
         String articleToDisplay = getArguments().getString(Constants.ARTICLE_PAGE_NUMBER);
-        mPresenter.getArticle(articleToDisplay);
+        presenter.getArticle(articleToDisplay);
     }
 
     @Override
     public void showArticle(List<RecyclerWrapper> articleList) {
 
-        mAdapter.addItems(articleList);
+        adapter.addItems(articleList);
     }
 
-
+    @Override
+    public void onDestroy() {
+        presenter.clearDisposable();
+        super.onDestroy();
+    }
 }

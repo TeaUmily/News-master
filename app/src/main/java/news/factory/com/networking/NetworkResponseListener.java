@@ -1,8 +1,10 @@
 package news.factory.com.networking;
 
-public interface NetworkResponseListener<T> {
+import news.factory.com.baseInteractor.InteractorWrapper;
 
-    void onSuccess(T callback);
+public interface NetworkResponseListener {
+
+    void onSuccess(InteractorWrapper callback);
     void onFailure(Throwable throwable);
 
 }
