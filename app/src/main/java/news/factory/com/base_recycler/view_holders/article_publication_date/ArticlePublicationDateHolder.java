@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.App;
 import news.factory.com.R;
-import news.factory.com.base_recycler.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.RecyclerWrapper;
 
 public class ArticlePublicationDateHolder extends RecyclerView.ViewHolder {
 

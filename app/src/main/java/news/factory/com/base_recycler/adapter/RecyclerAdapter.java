@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.adapter;
+package news.factory.com.base_recycler.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import news.factory.com.base_recycler.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.base_recycler.recycler.view_holders.article_author_shares.ArticleAuthorAndSharesHolder;
 import news.factory.com.base_recycler.recycler.view_holders.article_featured_image.ArticleFeaturedImageHolder;
 import news.factory.com.base_recycler.recycler.view_holders.article_image.ArticleImageHolder;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import news.factory.com.App;
-import news.factory.com.base_recycler.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.base_recycler.recycler.view_holders.article_author_shares.ArticleAuthorAndSharesData;
 import news.factory.com.base_recycler.recycler.view_holders.article_featured_image.ArticleFeaturedImageData;
 import news.factory.com.base_recycler.recycler.view_holders.article_image.ArticleImageData;

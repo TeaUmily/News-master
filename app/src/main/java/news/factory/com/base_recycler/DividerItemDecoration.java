@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler;
+package news.factory.com.base_recycler;
 
 
 import android.graphics.Rect;

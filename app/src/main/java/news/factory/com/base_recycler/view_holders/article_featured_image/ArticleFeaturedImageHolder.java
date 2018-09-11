@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.App;
 import news.factory.com.R;
-import news.factory.com.base_recycler.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.constants.Constants;
 
 public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {

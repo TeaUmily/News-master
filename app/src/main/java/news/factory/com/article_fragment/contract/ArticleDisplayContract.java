@@ -2,7 +2,7 @@ package news.factory.com.article_fragment.contract;
 
 import java.util.List;
 
-import news.factory.com.base_recycler.recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.RecyclerWrapper;
 
 public interface ArticleDisplayContract {
 
