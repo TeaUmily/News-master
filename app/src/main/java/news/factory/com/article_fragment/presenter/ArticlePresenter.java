@@ -14,7 +14,6 @@ import news.factory.com.base_recycler.recycler.view_holders.article_publication_
 import news.factory.com.base_recycler.recycler.view_holders.article_text.ArticleTextData;
 import news.factory.com.base_recycler.recycler.view_holders.article_title.ArticleTitleData;
 import news.factory.com.base_recycler.recycler.view_holders.article_upper_tittle.ArticleUpperTitleData;
-import news.factory.com.base_interactor.DisposableManager;
 import news.factory.com.base_interactor.InteractorWrapper;
 import news.factory.com.model.Content;
 import news.factory.com.interaction.ArticleInteractor;
@@ -29,13 +28,12 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     private ArticleInteractor interactor;
     private ArticleDisplayContract.View articleFragmentView;
     private String articlePageNumber;
-    private DisposableManager disposableManager;
 
 
     public ArticlePresenter(ArticleDisplayContract.View mArticleFragmentView) {
         this.articleFragmentView = mArticleFragmentView;
         this.interactor = new ArticleInteractorImpl(this,App.getApiService());
-        this.disposableManager = new DisposableManager();
+
     }
 
     @Override
@@ -46,14 +44,13 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
 
     @Override
     public void clearDisposable() {
-        disposableManager.clear();
+        interactor.dispose();
     }
 
 
     @Override
     public void onSuccess(InteractorWrapper callback) {
         Article article = (Article) callback.getData();
-        disposableManager.add(interactor.getObserver());
         articleFragmentView.showArticle(getArticleMappedList(article));
     }
 

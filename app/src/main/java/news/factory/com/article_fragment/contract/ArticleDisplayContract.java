@@ -12,7 +12,6 @@ public interface ArticleDisplayContract {
 
     }
 
-
     interface Presenter {
 
         void getArticle(String articleToDisplay);
