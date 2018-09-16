@@ -1,4 +1,4 @@
-package news.factory.com.interaction;
+package news.factory.com.base_interactor;
 
 
 import io.reactivex.observers.DisposableObserver;

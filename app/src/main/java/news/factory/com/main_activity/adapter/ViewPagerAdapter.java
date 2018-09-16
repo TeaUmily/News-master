@@ -6,12 +6,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import news.factory.com.article_fragment.view.ArticleFragment;
 
-public class CustomViewPagerFragmentAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
 
 
     private int size;
 
-    public CustomViewPagerFragmentAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

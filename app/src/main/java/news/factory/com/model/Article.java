@@ -257,7 +257,7 @@ public class Article {
         this.no_featured_image = no_featured_image;
     }
 
-    public String getPublished_at_humans ()
+    public String getPublishedAtHumans()
     {
         return published_at_humans;
     }
@@ -407,7 +407,7 @@ public class Article {
         this.category_analytics = category_analytics;
     }
 
-    public String getFeatured_image_source ()
+    public String getFeaturedImageSource()
     {
         return featured_image_source;
     }
@@ -537,7 +537,7 @@ public class Article {
         this.article_edition = article_edition;
     }
 
-    public String getFeatured_image_caption ()
+    public String getFeaturedImageCaption()
     {
         return featured_image_caption;
     }

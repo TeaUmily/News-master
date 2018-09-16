@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_text;
+package news.factory.com.base_recycler.view_holders.article_text;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base_recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.view_holders.article_text.ArticleTextData;
 
 public class ArticleTextHolder extends RecyclerView.ViewHolder{
 

@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_featured_image;
+package news.factory.com.base_recycler.view_holders.article_featured_image;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,7 +11,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.constants.Constants;
@@ -44,17 +43,17 @@ public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
             ArticleFeaturedImageData data = (ArticleFeaturedImageData) dataList.get(position).getData();
 
             if(!data.getImage().isEmpty()){
-                Glide.with(App.getInstance()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
+                Glide.with(image.getContext()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
             }
             else{
-                source.setTextColor(App.getInstance().getResources().getColor(R.color.black));
-                caption.setTextColor(App.getInstance().getResources().getColor(R.color.black));
+                source.setTextColor(data.getTextColor());
+                caption.setTextColor(data.getTextColor());
             }
 
             category.setText(data.getCategory());
 
             if(!data.getSource().isEmpty()){
-                source.setText(App.getInstance().getResources().getString(R.string.source,data.getSource()));
+                source.setText(data.getSource());
             }
             else{
                 source.setVisibility(View.GONE);

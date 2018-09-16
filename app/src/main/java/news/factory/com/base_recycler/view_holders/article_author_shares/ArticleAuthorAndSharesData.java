@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_author_shares;
+package news.factory.com.base_recycler.view_holders.article_author_shares;
 
 public class ArticleAuthorAndSharesData {
 

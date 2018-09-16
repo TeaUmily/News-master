@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_image;
+package news.factory.com.base_recycler.view_holders.article_image;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base_recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.view_holders.article_image.ArticleImageData;
 import news.factory.com.constants.Constants;
 
 public class ArticleImageHolder extends RecyclerView.ViewHolder{
@@ -31,7 +32,7 @@ public class ArticleImageHolder extends RecyclerView.ViewHolder{
     public void onBind(int position) {
         if (position != RecyclerView.NO_POSITION) {
             ArticleImageData data = (ArticleImageData) dataList.get(position).getData();
-            Glide.with(App.getInstance()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
+            Glide.with(image.getContext()).load(data.getImage()).into(image);
         }
     }
 }

@@ -1,9 +1,7 @@
 package news.factory.com.main_activity.presenter;
 
-import news.factory.com.App;
 import news.factory.com.base_interactor.InteractorWrapper;
 import news.factory.com.interaction.ArticleInteractor;
-import news.factory.com.interaction.ArticleInteractorImpl;
 import news.factory.com.constants.Constants;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.model.Article;
@@ -15,9 +13,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter, Ne
     private ArticleInteractor interactor;
 
 
-    public MainActivityPresenter(MainActivityContract.View mMainActivityView) {
+    public MainActivityPresenter(MainActivityContract.View mMainActivityView, ArticleInteractor interactor) {
         this.mainActivityView = mMainActivityView;
-        this.interactor = new ArticleInteractorImpl(this,App.getApiService());
+        this.interactor = interactor;
     }
 
     @Override

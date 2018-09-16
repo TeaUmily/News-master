@@ -1,11 +1,11 @@
 package news.factory.com.base_recycler;
 
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import news.factory.com.App;
 import news.factory.com.R;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
@@ -13,8 +13,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private final int verticalSpaceHeight;
 
-    public DividerItemDecoration() {
-        this.verticalSpaceHeight = (int) App.getInstance().getResources().getDimension(R.dimen.divider_space_height) ;
+
+    public DividerItemDecoration(Context context) {
+        this.verticalSpaceHeight = (int) context.getResources().getDimension(R.dimen.divider_space_height) ;
     }
 
     @Override

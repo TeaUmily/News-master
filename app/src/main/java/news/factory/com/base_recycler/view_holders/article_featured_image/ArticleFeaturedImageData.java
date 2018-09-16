@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_featured_image;
+package news.factory.com.base_recycler.view_holders.article_featured_image;
 
 
 public class ArticleFeaturedImageData {
@@ -8,6 +8,7 @@ public class ArticleFeaturedImageData {
     private String category;
     private String source;
     private String caption;
+    private int textColor;
 
     public ArticleFeaturedImageData(String image, String category, String source, String caption) {
         this.image = image;
@@ -36,5 +37,13 @@ public class ArticleFeaturedImageData {
 
     public String getCaption() {
         return caption;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
     }
 }

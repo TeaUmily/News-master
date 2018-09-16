@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_upper_tittle;
+package news.factory.com.base_recycler.view_holders.article_upper_tittle;
 
 public class ArticleUpperTitleData {
 

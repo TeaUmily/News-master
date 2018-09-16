@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_author_shares;
+package news.factory.com.base_recycler.view_holders.article_author_shares;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

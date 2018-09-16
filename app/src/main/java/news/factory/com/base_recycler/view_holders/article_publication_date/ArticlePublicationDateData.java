@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_publication_date;
+package news.factory.com.base_recycler.view_holders.article_publication_date;
 
 import android.text.style.TtsSpan;
 import android.widget.Toast;

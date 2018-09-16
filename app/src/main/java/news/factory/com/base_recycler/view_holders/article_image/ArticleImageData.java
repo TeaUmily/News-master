@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_image;
+package news.factory.com.base_recycler.view_holders.article_image;
 
 public class ArticleImageData {
 

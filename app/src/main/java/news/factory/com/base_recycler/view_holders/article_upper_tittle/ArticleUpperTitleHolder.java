@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_upper_tittle;
+package news.factory.com.base_recycler.view_holders.article_upper_tittle;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base_recycler.RecyclerWrapper;
+import news.factory.com.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleData;
 
 
 public class ArticleUpperTitleHolder extends RecyclerView.ViewHolder {

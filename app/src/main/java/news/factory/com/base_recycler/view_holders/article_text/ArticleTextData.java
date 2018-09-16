@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_text;
+package news.factory.com.base_recycler.view_holders.article_text;
 
 public class ArticleTextData {
 

@@ -1,17 +1,23 @@
 package news.factory.com.main_activity.view;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
+import dagger.android.AndroidInjection;
+import dagger.android.DispatchingAndroidInjector;
 import news.factory.com.R;
-import news.factory.com.main_activity.adapter.CustomViewPagerFragmentAdapter;
+import news.factory.com.main_activity.adapter.ViewPagerAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.main_activity.presenter.MainActivityPresenter;
 
@@ -29,26 +35,27 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     ImageView backwardNav;
 
 
+    @Inject
+    protected ViewPagerAdapter adapter;
 
-    private CustomViewPagerFragmentAdapter adapter;
-    private MainActivityContract.Presenter presenter;
+    @Inject
+    protected MainActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        presenter = new MainActivityPresenter(this);
 
         presenter.getNumberOfPages();
 
     }
 
     @Override
-    public void setAdapter(Integer pages_no) {
-        this.adapter = new CustomViewPagerFragmentAdapter(getSupportFragmentManager());
-        adapter.setSize(pages_no);
+    public void setAdapter(Integer pagesNumber) {
+        adapter.setSize(pagesNumber);
         viewPager.setAdapter(adapter);
         setNavigationButtons(viewPager.getCurrentItem(),adapter.getCount());
     }

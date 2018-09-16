@@ -4,7 +4,7 @@ public interface MainActivityContract {
 
     interface View {
 
-        void setAdapter(Integer pages_no);
+        void setAdapter(Integer pagesNumber);
     }
 
     interface Presenter {

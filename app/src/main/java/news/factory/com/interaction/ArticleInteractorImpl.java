@@ -16,13 +16,13 @@ public class ArticleInteractorImpl implements ArticleInteractor{
     ApiService service;
     DisposableObserver<InteractorWrapper> disposableObserver;
 
-    public ArticleInteractorImpl(NetworkResponseListener listener, ApiService service) {
+    public ArticleInteractorImpl(ApiService service) {
         this.service = service;
-        this.disposableObserver = provideDisposableObserver(listener);
     }
 
     @Override
     public void  getArticle(final NetworkResponseListener listener, String Token, String PageNumber, String ArticleId, String ArticleType) {
+       disposableObserver = provideDisposableObserver(listener);
         service.getArticle(ArticleType, ArticleId, Token, PageNumber).subscribeOn(Schedulers.io())
                 .map(new Function<Article, InteractorWrapper>() {
                     @Override
@@ -54,11 +54,6 @@ public class ArticleInteractorImpl implements ArticleInteractor{
 
             }
         };
-    }
-
-    @Override
-    public DisposableObserver getObserver() {
-        return disposableObserver;
     }
 
 

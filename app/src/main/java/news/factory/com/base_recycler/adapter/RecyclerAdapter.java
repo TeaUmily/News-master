@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import news.factory.com.base_recycler.RecyclerWrapper;
-import news.factory.com.base_recycler.recycler.view_holders.article_author_shares.ArticleAuthorAndSharesHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_featured_image.ArticleFeaturedImageHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_image.ArticleImageHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_page_indicator.ArticlePageIndicatorHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_publication_date.ArticlePublicationDateHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_text.ArticleTextHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_title.ArticleTitleHolder;
-import news.factory.com.base_recycler.recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
+import news.factory.com.base_recycler.view_holders.article_author_shares.ArticleAuthorAndSharesHolder;
+import news.factory.com.base_recycler.view_holders.article_featured_image.ArticleFeaturedImageHolder;
+import news.factory.com.base_recycler.view_holders.article_image.ArticleImageHolder;
+import news.factory.com.base_recycler.view_holders.article_page_indicator.ArticlePageIndicatorHolder;
+import news.factory.com.base_recycler.view_holders.article_publication_date.ArticlePublicationDateHolder;
+import news.factory.com.base_recycler.view_holders.article_text.ArticleTextHolder;
+import news.factory.com.base_recycler.view_holders.article_title.ArticleTitleHolder;
+import news.factory.com.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{

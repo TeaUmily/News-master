@@ -8,7 +8,7 @@ public interface ArticleDisplayContract {
 
     interface View {
 
-        void showArticle(List<RecyclerWrapper> mArticle);
+        void showArticle(List<RecyclerWrapper> article);
 
     }
 

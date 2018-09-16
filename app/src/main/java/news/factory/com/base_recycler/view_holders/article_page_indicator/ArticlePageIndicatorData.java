@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_page_indicator;
+package news.factory.com.base_recycler.view_holders.article_page_indicator;
 
 public class ArticlePageIndicatorData {
 

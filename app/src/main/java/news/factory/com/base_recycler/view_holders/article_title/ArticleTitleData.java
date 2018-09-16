@@ -1,4 +1,4 @@
-package news.factory.com.base_recycler.recycler.view_holders.article_title;
+package news.factory.com.base_recycler.view_holders.article_title;
 
 public class ArticleTitleData{
 
