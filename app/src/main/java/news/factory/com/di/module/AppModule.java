@@ -6,7 +6,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.App;
-import news.factory.com.helpers.ResourcesProviderImpl;
+import news.factory.com.helpers.resources_provider.ResourcesProviderImpl;
 
 @Module
 public class AppModule {

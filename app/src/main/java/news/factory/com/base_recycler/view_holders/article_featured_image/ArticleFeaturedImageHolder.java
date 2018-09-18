@@ -42,7 +42,7 @@ public class ArticleFeaturedImageHolder extends RecyclerView.ViewHolder {
         if (position != RecyclerView.NO_POSITION) {
             ArticleFeaturedImageData data = (ArticleFeaturedImageData) dataList.get(position).getData();
 
-            if(!data.getImage().isEmpty()){
+            if(data.getImage() != null){
                 Glide.with(image.getContext()).load(Constants.IMAGE_BASE_URL + data.getImage()).into(image);
             }
             else{

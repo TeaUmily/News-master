@@ -1,8 +1,7 @@
 package news.factory.com.main_activity.view;
 
-import android.app.Activity;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,11 +14,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
 import dagger.android.AndroidInjection;
-import dagger.android.DispatchingAndroidInjector;
 import news.factory.com.R;
 import news.factory.com.main_activity.adapter.ViewPagerAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
-import news.factory.com.main_activity.presenter.MainActivityPresenter;
+
 
 
 public class MainActivity extends AppCompatActivity implements MainActivityContract.View {

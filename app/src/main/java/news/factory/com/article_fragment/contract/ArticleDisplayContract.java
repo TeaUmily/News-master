@@ -16,7 +16,6 @@ public interface ArticleDisplayContract {
 
         void getArticle(String articleToDisplay);
 
-        void clearDisposable();
     }
 
 

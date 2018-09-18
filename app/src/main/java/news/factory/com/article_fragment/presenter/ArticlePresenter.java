@@ -1,11 +1,23 @@
 package news.factory.com.article_fragment.presenter;
 
 
+
+
+import android.arch.lifecycle.LifecycleObserver;
+import android.util.Log;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.Lazy;
 import news.factory.com.R;
-import news.factory.com.helpers.ResourcesProviderImpl;
+import news.factory.com.base_recycler.adapter.RecyclerAdapter;
+import news.factory.com.base_recycler.adapter.RecyclerAdapterImpl;
+import news.factory.com.helpers.listeners.OnImageClickListener;
+import news.factory.com.helpers.resources_provider.ResourcesProviderImpl;
 import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.base_interactor.InteractorWrapper;
 import news.factory.com.base_recycler.view_holders.article_author_shares.ArticleAuthorAndSharesData;
@@ -21,20 +33,24 @@ import news.factory.com.interaction.ArticleInteractor;
 import news.factory.com.constants.Constants;
 import news.factory.com.model.Article;
 import news.factory.com.article_fragment.contract.ArticleDisplayContract;
-import news.factory.com.networking.NetworkResponseListener;
+import news.factory.com.helpers.listeners.NetworkResponseListener;
 
-public class ArticlePresenter implements ArticleDisplayContract.Presenter, NetworkResponseListener{
+public class ArticlePresenter implements ArticleDisplayContract.Presenter, NetworkResponseListener, LifecycleObserver, OnImageClickListener{
 
     private ArticleInteractor interactor;
     private ArticleDisplayContract.View articleFragmentView;
     private String articlePageNumber;
     private ResourcesProviderImpl context;
 
+    private Lazy<RecyclerAdapter> recyclerAdapterlazy;
 
-    public ArticlePresenter(ArticleDisplayContract.View mArticleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context) {
+
+    @Inject
+    public ArticlePresenter(ArticleDisplayContract.View mArticleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context,  Lazy<RecyclerAdapter> adapterLazy) {
         this.articleFragmentView = mArticleFragmentView;
         this.interactor = interactor;
         this.context = context;
+        this.recyclerAdapterlazy = adapterLazy;
     }
 
     @Override
@@ -44,15 +60,10 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     }
 
     @Override
-    public void clearDisposable() {
-        interactor.dispose();
-    }
-
-
-    @Override
     public void onSuccess(InteractorWrapper callback) {
         Article article = (Article) callback.getData();
-        articleFragmentView.showArticle(getArticleMappedList(article));
+        recyclerAdapterlazy.get().addItems(getArticleMappedList(article));
+       // articleFragmentView.showArticle(getArticleMappedList(article));
     }
 
     @Override
@@ -120,25 +131,29 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     private void mappFeaturedImage(List<RecyclerWrapper> recyclerWrappers, Article article) {
 
         ArticleFeaturedImageData featuredImageData;
+        String source = "";
 
-        if(!article.getNo_featured_image().equals(Constants.ARTICLE_FEATURED_IMAGE)){
+        if(!article.getFeaturedImageSource().isEmpty()){
+            source = context.provideString(R.string.source, article.getFeaturedImageSource());
+        }
 
-            String source = "";
-
-            if(!article.getFeaturedImageSource().isEmpty()){
-                source = context.provideString(R.string.source, article.getFeaturedImageSource());
-            }
+        if(article.getNo_featured_image().equals(Constants.ARTICLE_FEATURED_IMAGE)){
 
             featuredImageData = new ArticleFeaturedImageData(article.getFeatured_image().getOriginal(), article.getCategory(),source, article.getFeaturedImageCaption());
-            featuredImageData.setTextColor(context.provideColor(R.color.white));
             recyclerWrappers.add(new RecyclerWrapper(featuredImageData,RecyclerWrapper.TYPE_FEATURED_IMAGE));
         }
         else{
+
             featuredImageData = new ArticleFeaturedImageData(article.getCategory(), article.getFeaturedImageSource(), article.getFeaturedImageCaption());
-            recyclerWrappers.add(new RecyclerWrapper(featuredImageData,RecyclerWrapper.TYPE_FEATURED_IMAGE));
             featuredImageData.setTextColor(context.provideColor(R.color.black));
+            recyclerWrappers.add(new RecyclerWrapper(featuredImageData,RecyclerWrapper.TYPE_FEATURED_IMAGE));
         }
 
     }
 
+    @Override
+    public void onImageClick() {
+        Log.wtf("tEreZijaaaa", "Opaaaa radiii");
+        getArticle(articlePageNumber);
+    }
 }

@@ -12,24 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
 import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.R;
 import news.factory.com.article_fragment.contract.ArticleDisplayContract;
 import news.factory.com.base_recycler.DividerItemDecoration;
-import news.factory.com.base_recycler.adapter.RecyclerAdapter;
+
+import news.factory.com.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.base_recycler.RecyclerWrapper;
+
 import news.factory.com.constants.Constants;
-import news.factory.com.article_fragment.presenter.ArticlePresenter;
 
 public class ArticleFragment extends Fragment implements ArticleDisplayContract.View{
-
 
     @BindView(R.id.recyclerView_article)
     RecyclerView recyclerView;
@@ -38,7 +38,7 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
     protected ArticleDisplayContract.Presenter presenter;
 
     @Inject
-    protected RecyclerAdapter adapter;
+    protected RecyclerAdapterImpl adapter;
 
 
     public static ArticleFragment newInstance(int articleNumber) {
@@ -67,6 +67,7 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
+
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -86,9 +87,4 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         adapter.addItems(articleList);
     }
 
-    @Override
-    public void onDestroy() {
-        presenter.clearDisposable();
-        super.onDestroy();
-    }
 }

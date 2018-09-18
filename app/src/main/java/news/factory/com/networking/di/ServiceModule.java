@@ -1,5 +1,4 @@
-package news.factory.com.di.module;
-
+package news.factory.com.networking.di;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,8 +11,6 @@ import dagger.Module;
 import dagger.Provides;
 import news.factory.com.App;
 import news.factory.com.constants.Constants;
-import news.factory.com.interaction.ArticleInteractor;
-import news.factory.com.interaction.ArticleInteractorImpl;
 import news.factory.com.networking.ApiService;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -24,11 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class ServiceModule {
 
-    @Singleton
-    @Provides
-    ArticleInteractor provideArticleInteractor(ApiService apiService){
-        return new ArticleInteractorImpl(apiService);
-    }
 
     @Singleton
     @Provides

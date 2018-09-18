@@ -20,7 +20,7 @@ public class Constants {
 
     public static final String ARTICLE_PAGE_NUMBER = "1";
 
-    public static final String ARTICLE_FEATURED_IMAGE = "FALSE";
+    public static final String ARTICLE_FEATURED_IMAGE = "false";
 
 
 

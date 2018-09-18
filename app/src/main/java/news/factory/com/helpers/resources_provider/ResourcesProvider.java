@@ -1,4 +1,4 @@
-package news.factory.com.helpers;
+package news.factory.com.helpers.resources_provider;
 
 public interface ResourcesProvider {
 

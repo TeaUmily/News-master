@@ -13,7 +13,7 @@ import news.factory.com.App;
 import news.factory.com.di.module.ActivityModule;
 import news.factory.com.di.module.AppModule;
 import news.factory.com.di.module.FragmentModule;
-import news.factory.com.di.module.ServiceModule;
+import news.factory.com.networking.di.ServiceModule;
 
 @Singleton
 @Component(modules = {

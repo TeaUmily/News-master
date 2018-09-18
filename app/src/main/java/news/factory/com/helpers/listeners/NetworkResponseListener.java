@@ -1,4 +1,4 @@
-package news.factory.com.networking;
+package news.factory.com.helpers.listeners;
 
 import news.factory.com.base_interactor.InteractorWrapper;
 
