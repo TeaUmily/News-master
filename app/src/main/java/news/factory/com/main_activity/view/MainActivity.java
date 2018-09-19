@@ -15,7 +15,7 @@ import butterknife.OnClick;
 import butterknife.OnPageChange;
 import dagger.android.AndroidInjection;
 import news.factory.com.R;
-import news.factory.com.main_activity.adapter.ViewPagerAdapter;
+import news.factory.com.main_activity.adapter.PagerMainAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 
 
@@ -32,9 +32,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     @BindView(R.id.floating_back_button)
     ImageView backwardNav;
 
-
     @Inject
-    protected ViewPagerAdapter adapter;
+    protected PagerMainAdapter adapter;
 
     @Inject
     protected MainActivityContract.Presenter presenter;

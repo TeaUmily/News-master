@@ -1,4 +1,4 @@
-package news.factory.com.article_fragment.view;
+package news.factory.com.article_fragment;
 
 
 import android.content.Context;
@@ -13,29 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.R;
-import news.factory.com.article_fragment.contract.ArticleDisplayContract;
 import news.factory.com.base_recycler.DividerItemDecoration;
 
 import news.factory.com.base_recycler.adapter.RecyclerAdapterImpl;
-import news.factory.com.base_recycler.RecyclerWrapper;
 
 import news.factory.com.constants.Constants;
 
-public class ArticleFragment extends Fragment implements ArticleDisplayContract.View{
+public class ArticleFragment extends Fragment implements ArticleContract.View{
 
     @BindView(R.id.recyclerView_article)
     RecyclerView recyclerView;
 
     @Inject
-    protected ArticleDisplayContract.Presenter presenter;
+    protected ArticleContract.Presenter presenter;
 
     @Inject
     protected RecyclerAdapterImpl adapter;
@@ -67,8 +63,7 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-
-        recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -81,10 +76,5 @@ public class ArticleFragment extends Fragment implements ArticleDisplayContract.
         presenter.getArticle(articleToDisplay);
     }
 
-    @Override
-    public void showArticle(List<RecyclerWrapper> articleList) {
-
-        adapter.addItems(articleList);
-    }
 
 }

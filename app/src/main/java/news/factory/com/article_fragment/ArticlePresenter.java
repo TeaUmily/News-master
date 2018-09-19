@@ -1,10 +1,9 @@
-package news.factory.com.article_fragment.presenter;
+package news.factory.com.article_fragment;
 
 
 
 
 import android.arch.lifecycle.LifecycleObserver;
-import android.util.Log;
 
 
 import java.util.ArrayList;
@@ -15,8 +14,6 @@ import javax.inject.Inject;
 import dagger.Lazy;
 import news.factory.com.R;
 import news.factory.com.base_recycler.adapter.RecyclerAdapter;
-import news.factory.com.base_recycler.adapter.RecyclerAdapterImpl;
-import news.factory.com.helpers.listeners.OnImageClickListener;
 import news.factory.com.helpers.resources_provider.ResourcesProviderImpl;
 import news.factory.com.base_recycler.RecyclerWrapper;
 import news.factory.com.base_interactor.InteractorWrapper;
@@ -29,16 +26,15 @@ import news.factory.com.base_recycler.view_holders.article_text.ArticleTextData;
 import news.factory.com.base_recycler.view_holders.article_title.ArticleTitleData;
 import news.factory.com.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleData;
 import news.factory.com.model.Content;
-import news.factory.com.interaction.ArticleInteractor;
+import news.factory.com.interaction.article_interactor.ArticleInteractor;
 import news.factory.com.constants.Constants;
 import news.factory.com.model.Article;
-import news.factory.com.article_fragment.contract.ArticleDisplayContract;
 import news.factory.com.helpers.listeners.NetworkResponseListener;
 
-public class ArticlePresenter implements ArticleDisplayContract.Presenter, NetworkResponseListener, LifecycleObserver, OnImageClickListener{
+public class ArticlePresenter implements ArticleContract.Presenter, NetworkResponseListener, LifecycleObserver{
 
     private ArticleInteractor interactor;
-    private ArticleDisplayContract.View articleFragmentView;
+    private ArticleContract.View articleFragmentView;
     private String articlePageNumber;
     private ResourcesProviderImpl context;
 
@@ -46,7 +42,7 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
 
 
     @Inject
-    public ArticlePresenter(ArticleDisplayContract.View mArticleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context,  Lazy<RecyclerAdapter> adapterLazy) {
+    public ArticlePresenter(ArticleContract.View mArticleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context, Lazy<RecyclerAdapter> adapterLazy) {
         this.articleFragmentView = mArticleFragmentView;
         this.interactor = interactor;
         this.context = context;
@@ -63,7 +59,6 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
     public void onSuccess(InteractorWrapper callback) {
         Article article = (Article) callback.getData();
         recyclerAdapterlazy.get().addItems(getArticleMappedList(article));
-       // articleFragmentView.showArticle(getArticleMappedList(article));
     }
 
     @Override
@@ -82,8 +77,13 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
         mappContent(recyclerWrappers,article);
         mappPublicationDate(recyclerWrappers, article);
         mappIndicator(recyclerWrappers, article);
+        mappArticleCategories(recyclerWrappers);
 
         return recyclerWrappers;
+    }
+
+    private void mappArticleCategories(List<RecyclerWrapper> recyclerWrappers) {
+        recyclerWrappers.add(new RecyclerWrapper(RecyclerWrapper.TYPE_ARTICLE_CATEGORIES));
     }
 
     private void mappIndicator(List<RecyclerWrapper> recyclerWrappers, Article article) {
@@ -151,9 +151,9 @@ public class ArticlePresenter implements ArticleDisplayContract.Presenter, Netwo
 
     }
 
-    @Override
-    public void onImageClick() {
-        Log.wtf("tEreZijaaaa", "Opaaaa radiii");
-        getArticle(articlePageNumber);
+    public String getArticlePageNumber() {
+        return articlePageNumber;
     }
+
+
 }

@@ -4,14 +4,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import news.factory.com.article_fragment.view.ArticleFragment;
+import javax.inject.Inject;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+import news.factory.com.article_fragment.ArticleFragment;
+
+public class PagerMainAdapter extends FragmentPagerAdapter {
 
 
     private int size;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    @Inject
+    public PagerMainAdapter(FragmentManager fm) {
         super(fm);
     }
 

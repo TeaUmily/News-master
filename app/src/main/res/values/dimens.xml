@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="small_text_size">16sp</dimen>
-    <dimen name="text_padding_dimension_cell">5dp</dimen>
-    <dimen name="article_title_font">30sp</dimen>
-    <dimen name="side_padding_text_cell">16dp</dimen>
-    <dimen name="normal_text_size">18dp</dimen>
-    <dimen name="divider_space_height">16dp</dimen>
+    <dimen categoryName="small_text_size">16sp</dimen>
+    <dimen categoryName="text_padding_dimension_cell">5dp</dimen>
+    <dimen categoryName="article_title_font">30sp</dimen>
+    <dimen categoryName="side_padding_text_cell">16dp</dimen>
+    <dimen categoryName="normal_text_size">18dp</dimen>
+    <dimen categoryName="divider_space_height">16dp</dimen>
 </resources>

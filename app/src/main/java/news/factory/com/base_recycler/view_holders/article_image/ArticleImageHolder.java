@@ -1,7 +1,6 @@
 package news.factory.com.base_recycler.view_holders.article_image;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -12,25 +11,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import news.factory.com.App;
 import news.factory.com.R;
-import news.factory.com.article_fragment.contract.ArticleDisplayContract;
+import news.factory.com.article_fragment.ArticleContract;
+import news.factory.com.article_fragment.ArticlePresenter;
 import news.factory.com.base_recycler.RecyclerWrapper;
-import news.factory.com.base_recycler.view_holders.article_image.ArticleImageData;
-import news.factory.com.constants.Constants;
-import news.factory.com.helpers.listeners.OnImageClickListener;
 
 public class ArticleImageHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.imageView_item_article)ImageView image;
 
     private List<RecyclerWrapper> dataList;
-    private OnImageClickListener listener;
+    private Object object;
 
 
-    public ArticleImageHolder(View itemView, List<RecyclerWrapper> dataArray, ArticleDisplayContract.Presenter presenter) {
+    public ArticleImageHolder(View itemView, List<RecyclerWrapper> dataArray, Object object) {
         super(itemView);
-        this.listener = (OnImageClickListener) presenter;
+        this.object = object;
         this.dataList = dataArray;
         ButterKnife.bind(this, itemView);
     }
@@ -44,10 +40,16 @@ public class ArticleImageHolder extends RecyclerView.ViewHolder {
 
     @OnClick(R.id.imageView_item_article)
     public void onImageClick(){
-        listener.onImageClick();
-        Log.wtf("tEreZijaaaa", "desilo see");
-    }
+        ArticleContract.Presenter presenter;
 
+        if(object instanceof ArticlePresenter){
+
+            presenter = (ArticlePresenter) object;
+            presenter.getArticle(presenter.getArticlePageNumber());
+        }
+
+
+    }
 
 
 

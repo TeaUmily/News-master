@@ -3,7 +3,7 @@
     package="com.maradroid.dummyresponsegenerator">
 
     <application>
-        <activity android:name=".DRGActivity" android:screenOrientation="portrait"/>
+        <activity android:categoryName=".DRGActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

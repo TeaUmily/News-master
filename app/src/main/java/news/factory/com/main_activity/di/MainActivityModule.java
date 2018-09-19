@@ -7,9 +7,9 @@ import android.support.v4.app.FragmentManager;
 import dagger.Module;
 import dagger.Provides;
 
-import news.factory.com.interaction.ArticleInteractor;
-import news.factory.com.interaction.ArticleInteractorImpl;
-import news.factory.com.main_activity.adapter.ViewPagerAdapter;
+import news.factory.com.interaction.article_interactor.ArticleInteractor;
+import news.factory.com.interaction.article_interactor.ArticleInteractorImpl;
+import news.factory.com.main_activity.adapter.PagerMainAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.main_activity.presenter.MainActivityPresenter;
 import news.factory.com.main_activity.view.MainActivity;
@@ -21,8 +21,8 @@ public class MainActivityModule {
 
     @PerActivity
     @Provides
-    ViewPagerAdapter provideAdapter(FragmentManager fragmentManager){
-        return new ViewPagerAdapter(fragmentManager);
+    PagerMainAdapter provideAdapter(FragmentManager fragmentManager){
+        return new PagerMainAdapter(fragmentManager);
     }
 
     @PerActivity
@@ -31,7 +31,6 @@ public class MainActivityModule {
         mainActivity.getLifecycle().addObserver(interactor);
         return interactor;
     }
-
 
     @PerActivity
     @Provides
@@ -44,7 +43,6 @@ public class MainActivityModule {
     MainActivityContract.View provideMainActivityView (MainActivity mainActivity){
         return mainActivity;
     }
-
 
     @PerActivity
     @Provides

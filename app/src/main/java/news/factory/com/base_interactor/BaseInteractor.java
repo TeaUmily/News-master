@@ -13,7 +13,6 @@ public class BaseInteractor implements LifecycleObserver{
 
     DisposableObserver<InteractorWrapper> disposableObserver;
 
-
     public DisposableObserver<InteractorWrapper> provideDisposableObserver(final NetworkResponseListener listener) {
         disposableObserver = new DisposableObserver<InteractorWrapper>() {
 

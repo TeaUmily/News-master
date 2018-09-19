@@ -1,7 +1,7 @@
-package news.factory.com.interaction;
+package news.factory.com.interaction.article_interactor;
 
 
-import android.arch.lifecycle.LifecycleObserver;
+
 
 
 import javax.inject.Inject;
@@ -18,7 +18,7 @@ import news.factory.com.networking.ApiService;
 import news.factory.com.helpers.listeners.NetworkResponseListener;
 
 
-public class ArticleInteractorImpl extends BaseInteractor implements ArticleInteractor, LifecycleObserver {
+public class ArticleInteractorImpl extends BaseInteractor implements ArticleInteractor{
 
     ApiService service;
 
@@ -41,6 +41,5 @@ public class ArticleInteractorImpl extends BaseInteractor implements ArticleInte
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(provideDisposableObserver(listener));
     }
-
 
 }

@@ -4,7 +4,7 @@ package news.factory.com.main_activity.presenter;
 import javax.inject.Inject;
 
 import news.factory.com.base_interactor.InteractorWrapper;
-import news.factory.com.interaction.ArticleInteractor;
+import news.factory.com.interaction.article_interactor.ArticleInteractor;
 import news.factory.com.constants.Constants;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.model.Article;

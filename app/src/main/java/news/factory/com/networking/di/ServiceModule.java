@@ -28,6 +28,7 @@ public class ServiceModule {
         return retrofit.create(ApiService.class);
     }
 
+
     @Singleton
     @Provides
     public Retrofit retrofit(OkHttpClient okHttpClient, Gson gson){
