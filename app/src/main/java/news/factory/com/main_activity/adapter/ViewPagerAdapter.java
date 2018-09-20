@@ -3,10 +3,11 @@ package news.factory.com.main_activity.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-import news.factory.com.article_fragment.view.ArticleFragment;
+import news.factory.com.article_fragment.ArticleFragment;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
     private int size;
@@ -28,6 +29,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return size;
     }
+
 }
 
 

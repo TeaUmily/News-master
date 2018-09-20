@@ -1,6 +1,6 @@
 package news.factory.com.helpers.listeners;
 
-import news.factory.com.base_interactor.InteractorWrapper;
+import news.factory.com.base.base_interactor.InteractorWrapper;
 
 public interface NetworkResponseListener {
 

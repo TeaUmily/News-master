@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentManager;
 import dagger.Module;
 import dagger.Provides;
 
-import news.factory.com.interaction.ArticleInteractor;
-import news.factory.com.interaction.ArticleInteractorImpl;
+import news.factory.com.interaction.article_interaction.ArticleInteractor;
+import news.factory.com.interaction.article_interaction.ArticleInteractorImpl;
 import news.factory.com.main_activity.adapter.ViewPagerAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.main_activity.presenter.MainActivityPresenter;

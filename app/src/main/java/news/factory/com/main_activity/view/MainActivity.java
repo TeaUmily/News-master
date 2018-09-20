@@ -15,12 +15,13 @@ import butterknife.OnClick;
 import butterknife.OnPageChange;
 import dagger.android.AndroidInjection;
 import news.factory.com.R;
+import news.factory.com.base.BaseActivity;
 import news.factory.com.main_activity.adapter.ViewPagerAdapter;
 import news.factory.com.main_activity.contract.MainActivityContract;
 
 
 
-public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
+public class MainActivity extends BaseActivity implements MainActivityContract.View {
 
 
     @BindView(R.id.main_activity_view_pager)
@@ -41,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);

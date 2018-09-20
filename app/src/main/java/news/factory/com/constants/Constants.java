@@ -22,6 +22,20 @@ public class Constants {
 
     public static final String ARTICLE_FEATURED_IMAGE = "false";
 
+    public static final String CATEGORY_PAGE_NUMBER = "1";
+
+    public static final int NUMBER_OF_CATEGORIES = 3;
+
+    public static final String CATEGORY_ID = "0";
+
+    public static final String CATEGORY_MOST_POPULAR = "najpopularnije";
+
+    public static final String CATEGORY_MOST_READ = "najcitanije";
+
+    public static final String CATEGORY_NEWEST = "najnovije";
+
+    public static final String CATEGORIES_PAGE_NUMBER = "1";
+
 
 
 }
