@@ -1,7 +1,6 @@
 package news.factory.com.base.base_recycler.adapter;
 
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import javax.inject.Inject;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 import news.factory.com.base.base_recycler.view_holders.article_author_shares.ArticleAuthorAndSharesHolder;
 import news.factory.com.base.base_recycler.view_holders.article_categories.ArticleCategoriesHolder;
-import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapter;
+import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
 import news.factory.com.base.base_recycler.view_holders.article_featured_image.ArticleFeaturedImageHolder;
 import news.factory.com.base.base_recycler.view_holders.article_image.ArticleImageHolder;
 import news.factory.com.base.base_recycler.view_holders.article_item.ArticleItemHolder;
@@ -30,11 +29,10 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
     private List<RecyclerWrapper> dataList;
     private Object presenter;
 
-    @Inject
-    protected CategoriesPagerAdapter adapter;
+    protected CategoriesPagerAdapterImpl adapter;
 
     @Inject
-    public RecyclerAdapterImpl(Object presenter) {
+    public RecyclerAdapterImpl(Object presenter, CategoriesPagerAdapterImpl adapter) {
         dataList = new ArrayList<>();
         this.adapter = adapter;
         this.presenter = presenter;
@@ -160,6 +158,10 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
         public EmptyViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    public void setViewPagerAdapter(CategoriesPagerAdapterImpl adapter){
+        this.adapter = adapter;
     }
 
 }

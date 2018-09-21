@@ -1,11 +1,15 @@
 package news.factory.com.article_categories_fragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import dagger.Lazy;
+import news.factory.com.R;
 import news.factory.com.base.base_interactor.InteractorWrapper;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapter;
@@ -23,12 +27,14 @@ public class CategoriesPresenter implements CategoriesContract.Presenter, Networ
     private CategoriesInteractor interactor;
     private CategoriesContract.View categoriesFragmentView;
     private Lazy<RecyclerAdapter> recyclerAdapterlazy;
+    private ResourcesProviderImpl context;
 
     @Inject
     public CategoriesPresenter(CategoriesContract.View categoriesFragmentView, CategoriesInteractor interactor, ResourcesProviderImpl context, Lazy<RecyclerAdapter> adapterLazy) {
         this.categoriesFragmentView = categoriesFragmentView;
         this.interactor = interactor;
         this.recyclerAdapterlazy = adapterLazy;
+        this.context = context;
     }
 
     public void getArticles(int pageNum) {
@@ -55,10 +61,41 @@ public class CategoriesPresenter implements CategoriesContract.Presenter, Networ
 
        for(int i=0; i<4 ; i++) {
            Articles articles = category.getArticles().get(i);
-           recyclerWrappers.add(new RecyclerWrapper(new ArticleItemData(articles.getFeaturedImage().getS(), articles.getTitle(), articles.getPublishedAtHumans(), articles.getCategory(), articles.getShares()), RecyclerWrapper.TYPE_ARTIClE_ITEM));
+
+           String publishedTime;
+           if(getPastDays(articles.getPublishedAtHumans()).endsWith("1")){
+               publishedTime = context.provideString(R.string.publishedTime, getPastDays(articles.getPublishedAtHumans()));
+           }
+           else{
+               publishedTime = context.provideString(R.string.publishedTimeEndsWithA, getPastDays(articles.getPublishedAtHumans()));
+           }
+
+           recyclerWrappers.add(new RecyclerWrapper(new ArticleItemData(articles.getFeaturedImage().getM(), articles.getTitle(), publishedTime, articles.getCategory(), articles.getShares()), RecyclerWrapper.TYPE_ARTIClE_ITEM));
        }
 
         return recyclerWrappers;
+    }
+
+    public String getPastDays(String publishedAtHumans){
+
+        String publishedAt = publishedAtHumans.replace(".", "/");
+
+        String pattern = "dd/MM/yyyy HH:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        try {
+            Date date = simpleDateFormat.parse(publishedAt);
+            return String.valueOf(getDifferenceBetweenDates(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    public int getDifferenceBetweenDates(Date publicationDate){
+
+        return (int)((new Date().getTime()- publicationDate.getTime())/(1000 * 60 * 60 * 24));
     }
 
 

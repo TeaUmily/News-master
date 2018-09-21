@@ -36,6 +36,10 @@ public class Constants {
 
     public static final String CATEGORIES_PAGE_NUMBER = "1";
 
+    public static final String MOST_POPULAR = "Najpopularnije";
 
+    public static final String MOST_READ = "Najčitanije";
+
+    public static final String NEWEST = "Najnovije";
 
 }

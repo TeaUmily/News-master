@@ -9,9 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="@dimen/normal_text_size"
+        android:fontFamily="@font/roboto_slab"
         android:textColor="@color/black"
-        android:padding="@dimen/text_padding_dimension_cell"
         />
 
 </android.support.constraint.ConstraintLayout>

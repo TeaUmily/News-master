@@ -16,7 +16,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.base_recycler.DividerItemDecoration;
@@ -77,5 +76,7 @@ public class ArticleFragment extends BaseFragment implements ArticleContract.Vie
     public void showArticle(List<RecyclerWrapper> articleList) {
         adapter.addItems(articleList);
     }
+
+
 
 }

@@ -27,11 +27,11 @@ public class ArticleItemHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.category_type)
     TextView categoryType;
 
-    @BindView(R.id.published_time)
-    TextView published_time;
-
     @BindView(R.id.number_of_shares)
     TextView numberOfShares;
+
+    @BindView(R.id.publication_time_item)
+    TextView publicationTime;
 
     List<RecyclerWrapper> dataList;
 
@@ -47,8 +47,8 @@ public class ArticleItemHolder extends RecyclerView.ViewHolder {
             Glide.with(image.getContext()).load(Constants.IMAGE_BASE_URL + data.getFeaturedImageSource()).into(image);
             title.setText(data.getTitle());
             categoryType.setText(data.getCategory());
-            published_time.setText(data.getPublishedAtHumans());
             numberOfShares.setText(data.getNumberOfShares());
+            publicationTime.setText( data.getPublishedAtHumans());
         }
     }
 }

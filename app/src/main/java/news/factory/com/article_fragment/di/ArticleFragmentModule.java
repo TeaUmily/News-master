@@ -1,5 +1,7 @@
 package news.factory.com.article_fragment.di;
 
+
+        import android.support.v4.app.FragmentManager;
         import dagger.Module;
         import dagger.Provides;
         import news.factory.com.article_fragment.ArticleContract;
@@ -8,6 +10,7 @@ package news.factory.com.article_fragment.di;
         import news.factory.com.base.base_recycler.adapter.RecyclerAdapter;
         import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
         import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapter;
+        import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
         import news.factory.com.interaction.article_interaction.ArticleInteractor;
         import news.factory.com.interaction.article_interaction.ArticleInteractorImpl;
         import news.factory.com.scopes.PerFragment;
@@ -21,10 +24,11 @@ public class ArticleFragmentModule {
         return adapter;
     }
 
+
     @PerFragment
     @Provides
-    RecyclerAdapterImpl provideRecyclerAdapterImpl(ArticlePresenter presenter){
-        return new RecyclerAdapterImpl(presenter);
+    RecyclerAdapterImpl provideRecyclerAdapterImpl(ArticlePresenter presenter, CategoriesPagerAdapterImpl adapter){
+        return new RecyclerAdapterImpl(presenter, adapter);
     }
 
     @PerFragment
@@ -33,12 +37,14 @@ public class ArticleFragmentModule {
         return fragment;
     }
 
+
     @PerFragment
     @Provides
     ArticleInteractor provideArticleInteractor(ArticleInteractorImpl interactor, ArticleFragment articleFragment){
         articleFragment.getLifecycle().addObserver(interactor);
         return interactor;
     }
+
 
     @PerFragment
     @Provides
@@ -47,9 +53,11 @@ public class ArticleFragmentModule {
         return articlePresenter;
     }
 
+
     @PerFragment
     @Provides
-        CategoriesPagerAdapter providePagerAdapter(ArticleFragment fragment){
-            return new CategoriesPagerAdapter(fragment.getChildFragmentManager());
+    FragmentManager provideFragmentManager(ArticleFragment fragment){
+        return fragment.getChildFragmentManager();
     }
+
 }

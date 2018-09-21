@@ -2,4 +2,7 @@
     <string name="app_name">News</string>
     <string name="published">Objavljeno: %s</string>
     <string name="source">Source: %s</string>
+    <string name="publishedTimeEndsWithA">Prije %s dana </string>
+    <string name="publishedTime">Prije %s dan </string>
+    <string name="dana">dana</string>
 </resources>

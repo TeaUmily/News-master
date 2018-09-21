@@ -8,23 +8,26 @@
 
     <ImageView
         android:id="@+id/featured_image_item"
-        android:layout_width="10dp"
+        android:layout_width="126dp"
+        android:layout_height="112dp"
         android:scaleType="fitXY"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title_item"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="180dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:maxLines="4"
+        android:fontFamily="@font/roboto_slab"
         android:textColor="@color/black"
-        android:textSize="@dimen/normal_text_size"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/featured_image_item"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,44 +35,29 @@
     <TextView
         android:id="@+id/category_type"
         android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="2dp"
         android:background="@drawable/rectangle_shape"
-        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_slab"
         android:gravity="center"
+        android:paddingBottom="3dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="8dp"
+        android:paddingTop="3dp"
+        android:textColor="@color/white"
         android:textSize="@dimen/extra_small_font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/clock_icon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/ic_clock"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/featured_image_item"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/published_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/extra_small_font"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/clock_icon" />
 
     <ImageView
         android:id="@+id/shares"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
         android:layout_marginBottom="12dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_share"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -77,10 +65,46 @@
         android:id="@+id/number_of_shares"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/roboto_slab"
         android:textSize="@dimen/extra_small_font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/shares" />
+
+
+    <ImageView
+        android:id="@+id/clock"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_clock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/featured_image_item" />
+
+    <TextView
+        android:id="@+id/publication_time_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto_slab"
+        android:textSize="@dimen/extra_small_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clock" />
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="352dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/gray_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </View>
 
 </android.support.constraint.ConstraintLayout>

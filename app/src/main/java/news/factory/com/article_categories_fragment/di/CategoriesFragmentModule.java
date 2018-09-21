@@ -8,10 +8,10 @@ import dagger.Provides;
 import news.factory.com.article_categories_fragment.CategoriesContract;
 import news.factory.com.article_categories_fragment.CategoriesFragment;
 import news.factory.com.article_categories_fragment.CategoriesPresenter;
-import news.factory.com.article_fragment.ArticleFragment;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapter;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapter;
+import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
 import news.factory.com.interaction.categories_interactor.CategoriesInteractor;
 import news.factory.com.interaction.categories_interactor.CategoriesInteractorImpl;
 import news.factory.com.scopes.PerFragment;
@@ -27,8 +27,8 @@ public class CategoriesFragmentModule {
 
     @PerFragment
     @Provides
-    RecyclerAdapterImpl provideRecyclerAdapterImpl(CategoriesPresenter presenter){
-        return new RecyclerAdapterImpl(presenter);
+    RecyclerAdapterImpl provideRecyclerAdapterImpl(CategoriesPresenter presenter, CategoriesPagerAdapterImpl adapter){
+        return new RecyclerAdapterImpl(presenter, adapter);
     }
 
     @PerFragment
@@ -44,6 +44,7 @@ public class CategoriesFragmentModule {
         return fragment;
     }
 
+
     @PerFragment
     @Provides
     CategoriesContract.Presenter provideCategoriesPresenter(CategoriesPresenter categoriesPresenter)
@@ -51,16 +52,26 @@ public class CategoriesFragmentModule {
         return categoriesPresenter;
     }
 
+
     @PerFragment
     @Provides
-    CategoriesPagerAdapter provideCategoriesPagerAdapter(FragmentManager fragmentManager){
-        return new CategoriesPagerAdapter(fragmentManager);
+    CategoriesPagerAdapterImpl provideCategoriesPagerAdapterImpl(FragmentManager manager){
+        return new CategoriesPagerAdapterImpl(manager);
+    }
+
+
+    @PerFragment
+    @Provides
+    CategoriesPagerAdapter provideCategoriesPager(FragmentManager manager){
+        return new CategoriesPagerAdapterImpl(manager);
+
     }
 
     @PerFragment
     @Provides
     FragmentManager provideFragmentManager(CategoriesFragment fragment){
-        return fragment.getFragmentManager();
+        return fragment.getChildFragmentManager();
     }
+
 
 }
