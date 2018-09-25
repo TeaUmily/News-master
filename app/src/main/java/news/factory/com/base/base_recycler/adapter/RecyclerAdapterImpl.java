@@ -23,18 +23,21 @@ import news.factory.com.base.base_recycler.view_holders.article_publication_date
 import news.factory.com.base.base_recycler.view_holders.article_text.ArticleTextHolder;
 import news.factory.com.base.base_recycler.view_holders.article_title.ArticleTitleHolder;
 import news.factory.com.base.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
+import news.factory.com.base.base_recycler.view_holders.home_page.HomePageViewHolder;
+import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePagerAdapterImpl;
+import news.factory.com.base.base_recycler.view_holders.home_page_categories.HomeCategoriesHolder;
 
 public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements RecyclerAdapter {
 
     private List<RecyclerWrapper> dataList;
     private Object presenter;
 
-    protected CategoriesPagerAdapterImpl adapter;
+    private CategoriesPagerAdapterImpl categoriesPagerAdapter;
+    private HeaderHomePagerAdapterImpl headerHomePageAdapter;
 
     @Inject
-    public RecyclerAdapterImpl(Object presenter, CategoriesPagerAdapterImpl adapter) {
+    public RecyclerAdapterImpl(Object presenter) {
         dataList = new ArrayList<>();
-        this.adapter = adapter;
         this.presenter = presenter;
     }
 
@@ -76,10 +79,16 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 return new ArticlePageIndicatorHolder(view, dataList);
 
            case RecyclerWrapper.TYPE_ARTICLE_CATEGORIES:
-                return new ArticleCategoriesHolder(view, adapter);
+                return new ArticleCategoriesHolder(view, categoriesPagerAdapter);
 
             case RecyclerWrapper.TYPE_ARTIClE_ITEM:
                 return new ArticleItemHolder(view, dataList);
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_HEADER:
+                return new HomePageViewHolder(view, headerHomePageAdapter);
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_CATEGORY:
+                return new HomeCategoriesHolder(view);
 
             default: return new EmptyViewHolder(new View(parent.getContext()));
         }
@@ -139,6 +148,16 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 articleItemHolder.onBind(position);
                 break;
 
+            case RecyclerWrapper.TYPE_HOME_PAGE_HEADER:
+                HomePageViewHolder homePageViewHolder = (HomePageViewHolder) holder;
+                homePageViewHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_CATEGORY:
+               HomeCategoriesHolder homeCategoriesHolder = (HomeCategoriesHolder) holder;
+                homeCategoriesHolder.onBind(position);
+                break;
+
         }
     }
 
@@ -154,6 +173,12 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
 
+
+    public void setHeaderHomePageAdapter(HeaderHomePagerAdapterImpl headerHomePageAdapter) {
+        this.headerHomePageAdapter = headerHomePageAdapter;
+    }
+
+
     class EmptyViewHolder extends RecyclerView.ViewHolder{
         public EmptyViewHolder(View itemView) {
             super(itemView);
@@ -161,7 +186,7 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void setViewPagerAdapter(CategoriesPagerAdapterImpl adapter){
-        this.adapter = adapter;
+        this.categoriesPagerAdapter = adapter;
     }
 
 }

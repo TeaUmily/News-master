@@ -23,6 +23,8 @@ import news.factory.com.base.base_recycler.DividerItemDecoration;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 
+import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapter;
+import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
 import news.factory.com.constants.Constants;
 
 public class ArticleFragment extends BaseFragment implements ArticleContract.View{
@@ -35,6 +37,9 @@ public class ArticleFragment extends BaseFragment implements ArticleContract.Vie
 
     @Inject
     protected RecyclerAdapterImpl adapter;
+
+    @Inject
+    protected CategoriesPagerAdapterImpl pagerAdapter;
 
 
     public static ArticleFragment newInstance(int articleNumber) {
@@ -64,10 +69,11 @@ public class ArticleFragment extends BaseFragment implements ArticleContract.Vie
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        getArticle();
+        adapter.setViewPagerAdapter(pagerAdapter);
+        showArticle();
     }
 
-    private void getArticle() {
+    private void showArticle() {
         String articleToDisplay = getArguments().getString(Constants.ARTICLE_PAGE_NUMBER);
         presenter.getArticle(articleToDisplay);
     }

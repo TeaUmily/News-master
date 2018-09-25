@@ -1,6 +1,6 @@
-package news.factory.com.main_activity.contract;
+package news.factory.com.single_activity;
 
-public interface MainActivityContract {
+public interface SingleActivityContract {
 
     interface View {
 

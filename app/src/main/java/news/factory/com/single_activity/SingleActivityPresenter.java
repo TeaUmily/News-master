@@ -1,4 +1,4 @@
-package news.factory.com.main_activity.presenter;
+package news.factory.com.single_activity;
 
 
 import javax.inject.Inject;
@@ -6,18 +6,17 @@ import javax.inject.Inject;
 import news.factory.com.base.base_interactor.InteractorWrapper;
 import news.factory.com.interaction.article_interaction.ArticleInteractor;
 import news.factory.com.constants.Constants;
-import news.factory.com.main_activity.contract.MainActivityContract;
 import news.factory.com.model.Article;
 import news.factory.com.helpers.listeners.NetworkResponseListener;
 
-public class MainActivityPresenter implements MainActivityContract.Presenter, NetworkResponseListener{
+public class SingleActivityPresenter implements SingleActivityContract.Presenter, NetworkResponseListener{
 
-    private MainActivityContract.View mainActivityView;
+    private SingleActivityContract.View mainActivityView;
     private ArticleInteractor interactor;
 
 
     @Inject
-    public MainActivityPresenter(MainActivityContract.View mMainActivityView, ArticleInteractor interactor) {
+    public SingleActivityPresenter(SingleActivityContract.View mMainActivityView, ArticleInteractor interactor) {
         this.mainActivityView = mMainActivityView;
         this.interactor = interactor;
     }

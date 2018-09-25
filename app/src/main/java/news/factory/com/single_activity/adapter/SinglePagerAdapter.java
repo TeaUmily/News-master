@@ -1,4 +1,4 @@
-package news.factory.com.main_activity.adapter;
+package news.factory.com.single_activity.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,12 +7,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import news.factory.com.article_fragment.ArticleFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class SinglePagerAdapter extends FragmentStatePagerAdapter {
 
 
     private int size;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public SinglePagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

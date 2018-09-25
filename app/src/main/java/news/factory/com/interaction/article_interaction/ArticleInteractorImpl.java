@@ -18,7 +18,7 @@ import news.factory.com.networking.ApiService;
 import news.factory.com.helpers.listeners.NetworkResponseListener;
 
 
-public class ArticleInteractorImpl extends BaseInteractor implements ArticleInteractor, LifecycleObserver {
+public class ArticleInteractorImpl extends BaseInteractor implements ArticleInteractor{
 
     ApiService service;
 

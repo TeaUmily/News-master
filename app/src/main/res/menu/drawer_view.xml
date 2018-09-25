@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tags"
+        android:title="Tagovi" />
+
+    <item
+        android:id="@+id/news_item"
+        android:title="Vijesti" />
+    <item
+        android:id="@+id/sport_item"
+        android:title="Sport" />
+    <item
+        android:id="@+id/showbiz_item"
+        android:title="Showbiz" />
+    <item
+        android:id="@+id/lifestyle_item"
+        android:title="Lifestyle" />
+
+    <item
+        android:id="@+id/fun_item"
+        android:title="Zabava" />
+
+
+</menu>

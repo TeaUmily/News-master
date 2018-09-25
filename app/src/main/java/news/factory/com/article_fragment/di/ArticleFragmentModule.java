@@ -27,8 +27,8 @@ public class ArticleFragmentModule {
 
     @PerFragment
     @Provides
-    RecyclerAdapterImpl provideRecyclerAdapterImpl(ArticlePresenter presenter, CategoriesPagerAdapterImpl adapter){
-        return new RecyclerAdapterImpl(presenter, adapter);
+    RecyclerAdapterImpl provideRecyclerAdapterImpl(ArticlePresenter presenter){
+        return new RecyclerAdapterImpl(presenter);
     }
 
     @PerFragment
@@ -51,6 +51,12 @@ public class ArticleFragmentModule {
     ArticleContract.Presenter provideArticlePresenter(ArticlePresenter articlePresenter)
     {
         return articlePresenter;
+    }
+
+    @PerFragment
+    @Provides
+    CategoriesPagerAdapter provideCategoriesPagerAdapter(CategoriesPagerAdapter adapter){
+        return adapter;
     }
 
 

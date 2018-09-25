@@ -1,9 +1,8 @@
-package news.factory.com.main_activity.view;
+package news.factory.com.single_activity;
 
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,15 +12,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
-import dagger.android.AndroidInjection;
 import news.factory.com.R;
 import news.factory.com.base.BaseActivity;
-import news.factory.com.main_activity.adapter.ViewPagerAdapter;
-import news.factory.com.main_activity.contract.MainActivityContract;
+import news.factory.com.single_activity.adapter.SinglePagerAdapter;
 
 
-
-public class MainActivity extends BaseActivity implements MainActivityContract.View {
+public class SingleActivity extends BaseActivity implements SingleActivityContract.View {
 
 
     @BindView(R.id.main_activity_view_pager)
@@ -35,10 +31,10 @@ public class MainActivity extends BaseActivity implements MainActivityContract.V
 
 
     @Inject
-    protected ViewPagerAdapter adapter;
+    protected SinglePagerAdapter adapter;
 
     @Inject
-    protected MainActivityContract.Presenter presenter;
+    protected SingleActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

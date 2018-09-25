@@ -1,23 +1,18 @@
 package news.factory.com.article_categories_fragment;
 
-import android.content.Context;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
-import news.factory.com.base.base_recycler.DividerItemDecoration;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.constants.Constants;
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="349dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <android.support.v4.view.ViewPager
+      android:id="@+id/home_page_header_viewpager"
+      android:layout_width="match_parent"
+      android:layout_height="225dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+  </android.support.v4.view.ViewPager>
+
+  <android.support.design.widget.TabLayout
+      android:id="@+id/tablayout_header"
+      android:layout_width="wrap_content"
+      android:layout_height="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/home_page_header_viewpager"
+      app:tabBackground="@drawable/dot_selector"
+      app:tabIndicatorHeight="0dp"
+      app:tabMaxWidth="25dp"
+      app:tabMode="scrollable">
+
+  </android.support.design.widget.TabLayout>
+
+
+  <TextView
+      android:id="@+id/title_header_home_page"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/roboto_slab"
+      android:text="Ronalod šokirao javnost izjavom nakon utakmice. Bilo je lijepo u Madridu..."
+      android:textColor="@color/black"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tablayout_header" />
+
+</android.support.constraint.ConstraintLayout>

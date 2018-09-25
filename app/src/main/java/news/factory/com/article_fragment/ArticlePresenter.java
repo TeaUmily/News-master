@@ -40,8 +40,8 @@ public class ArticlePresenter implements ArticleContract.Presenter, NetworkRespo
 
 
     @Inject
-    public ArticlePresenter(ArticleContract.View mArticleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context, Lazy<RecyclerAdapter> adapterLazy) {
-        this.articleFragmentView = mArticleFragmentView;
+    public ArticlePresenter(ArticleContract.View articleFragmentView, ArticleInteractor interactor, ResourcesProviderImpl context, Lazy<RecyclerAdapter> adapterLazy) {
+        this.articleFragmentView = articleFragmentView;
         this.interactor = interactor;
         this.context = context;
         this.recyclerAdapterlazy = adapterLazy;

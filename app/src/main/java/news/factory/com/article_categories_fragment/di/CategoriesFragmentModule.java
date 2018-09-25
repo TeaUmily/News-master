@@ -27,8 +27,8 @@ public class CategoriesFragmentModule {
 
     @PerFragment
     @Provides
-    RecyclerAdapterImpl provideRecyclerAdapterImpl(CategoriesPresenter presenter, CategoriesPagerAdapterImpl adapter){
-        return new RecyclerAdapterImpl(presenter, adapter);
+    RecyclerAdapterImpl provideRecyclerAdapterImpl(CategoriesPresenter presenter){
+        return new RecyclerAdapterImpl(presenter);
     }
 
     @PerFragment

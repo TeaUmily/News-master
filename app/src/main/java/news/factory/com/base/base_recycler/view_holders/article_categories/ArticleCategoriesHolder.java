@@ -18,7 +18,6 @@ public class ArticleCategoriesHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.articleCategories_viewPager)
     ViewPager viewPager;
 
-
     @BindView(R.id.tablayout)
     TabLayout tabLayout;
 
@@ -31,6 +30,11 @@ public class ArticleCategoriesHolder extends RecyclerView.ViewHolder {
         adapter.setSize(Constants.NUMBER_OF_CATEGORIES);
         viewPager.setAdapter(adapter);
 
+        tabLayout.setupWithViewPager(viewPager);
+
+//        tabLayout.newTab().setText(Constants.MOST_POPULAR);
+//        tabLayout.newTab().setText(Constants.MOST_READ);
+//        tabLayout.newTab().setText(Constants.NEWEST);
 
     }
 
