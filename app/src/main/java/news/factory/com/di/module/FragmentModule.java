@@ -8,8 +8,6 @@ import news.factory.com.article_categories_fragment.CategoriesFragment;
 import news.factory.com.article_categories_fragment.di.CategoriesFragmentModule;
 import news.factory.com.article_fragment.di.ArticleFragmentModule;
 import news.factory.com.article_fragment.ArticleFragment;
-import news.factory.com.header_fragment.HeaderFragment;
-import news.factory.com.header_fragment.di.HeaderFragmentModule;
 import news.factory.com.home_page_fragment.HomePageFragment;
 import news.factory.com.home_page_fragment.di.HomePageFragmentModule;
 import news.factory.com.scopes.PerFragment;
@@ -29,7 +27,4 @@ public abstract class FragmentModule {
     @ContributesAndroidInjector(modules = HomePageFragmentModule.class)
     public abstract HomePageFragment provideHomeFragment();
 
-    @PerFragment
-    @ContributesAndroidInjector(modules = HeaderFragmentModule.class)
-    public abstract HeaderFragment provideHeaderFragment();
 }

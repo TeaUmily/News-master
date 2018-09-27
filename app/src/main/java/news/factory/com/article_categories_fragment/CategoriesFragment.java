@@ -19,7 +19,7 @@ import news.factory.com.constants.Constants;
 public class CategoriesFragment extends BaseFragment implements CategoriesContract.View{
 
 
-    @BindView(R.id.recyclerView_article)
+    @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
 
     @Inject
@@ -39,7 +39,7 @@ public class CategoriesFragment extends BaseFragment implements CategoriesContra
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_article, container, false);
+        View view = inflater.inflate(R.layout.fragment_with_recycler, container, false);
         return view;
     }
 

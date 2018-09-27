@@ -23,13 +23,12 @@ import news.factory.com.base.base_recycler.DividerItemDecoration;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 
-import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapter;
 import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
 import news.factory.com.constants.Constants;
 
 public class ArticleFragment extends BaseFragment implements ArticleContract.View{
 
-    @BindView(R.id.recyclerView_article)
+    @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
 
     @Inject
@@ -53,7 +52,7 @@ public class ArticleFragment extends BaseFragment implements ArticleContract.Vie
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_article, container, false);
+        View view = inflater.inflate(R.layout.fragment_with_recycler, container, false);
         return view;
     }
 

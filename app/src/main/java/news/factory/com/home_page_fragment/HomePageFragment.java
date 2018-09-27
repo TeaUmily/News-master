@@ -18,11 +18,12 @@ import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.base_recycler.DividerItemDecoration;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.base_recycler.view_holders.article_categories.CategoriesPagerAdapterImpl;
 import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePagerAdapterImpl;
 
 public class HomePageFragment extends BaseFragment implements HomePageFragmentContract.View {
 
-    @BindView(R.id.home_page_recycler)
+    @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
 
     @Inject
@@ -34,6 +35,9 @@ public class HomePageFragment extends BaseFragment implements HomePageFragmentCo
     @Inject
     protected HeaderHomePagerAdapterImpl pagerAdapter;
 
+    @Inject
+    protected CategoriesPagerAdapterImpl categoriesPagerAdapter;
+
 
     public static HomePageFragment newInstance (){
         HomePageFragment fragment = new HomePageFragment();
@@ -43,7 +47,7 @@ public class HomePageFragment extends BaseFragment implements HomePageFragmentCo
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_with_recycler, container, false);
         return view;
     }
 
@@ -57,6 +61,7 @@ public class HomePageFragment extends BaseFragment implements HomePageFragmentCo
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+        adapter.setViewPagerAdapter(categoriesPagerAdapter);
         adapter.setHeaderHomePageAdapter(pagerAdapter);
 
         showHomePage();

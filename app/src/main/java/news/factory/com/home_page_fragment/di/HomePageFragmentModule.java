@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 import dagger.Module;
 import dagger.Provides;
+import news.factory.com.article_fragment.ArticleFragment;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapter;
 import news.factory.com.base.base_recycler.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePageAdapter;
@@ -13,6 +14,8 @@ import news.factory.com.header_fragment.HeaderFragment;
 import news.factory.com.home_page_fragment.HomePageFragment;
 import news.factory.com.home_page_fragment.HomePageFragmentContract;
 import news.factory.com.home_page_fragment.HomePageFragmentPresenter;
+import news.factory.com.interaction.article_interaction.ArticleInteractor;
+import news.factory.com.interaction.article_interaction.ArticleInteractorImpl;
 import news.factory.com.interaction.home_screen_interactor.HomeScreenInteractor;
 import news.factory.com.interaction.home_screen_interactor.HomeScreenInteractorImpl;
 import news.factory.com.scopes.PerFragment;
@@ -46,10 +49,10 @@ public class HomePageFragmentModule {
         return presenter;
     }
 
-
     @PerFragment
     @Provides
     HomeScreenInteractor provideHomeScreenInteractor(HomeScreenInteractorImpl interactor, HomePageFragment fragment ){
+        fragment.getLifecycle().addObserver(interactor);
         return interactor;
     }
 

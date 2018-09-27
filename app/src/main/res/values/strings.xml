@@ -5,4 +5,5 @@
     <string name="publishedTimeEndsWithA">Prije %s dana </string>
     <string name="publishedTime">Prije %s dan </string>
     <string name="dana">dana</string>
+    <string name="all_articles">SVI ČLANCI</string>
 </resources>

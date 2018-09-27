@@ -2,6 +2,7 @@ package news.factory.com.base.base_recycler.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,11 @@ import news.factory.com.base.base_recycler.view_holders.article_publication_date
 import news.factory.com.base.base_recycler.view_holders.article_text.ArticleTextHolder;
 import news.factory.com.base.base_recycler.view_holders.article_title.ArticleTitleHolder;
 import news.factory.com.base.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
+import news.factory.com.base.base_recycler.view_holders.home_news_categories.NewsCategoriesHolder;
 import news.factory.com.base.base_recycler.view_holders.home_page.HomePageViewHolder;
 import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePagerAdapterImpl;
-import news.factory.com.base.base_recycler.view_holders.home_page_categories.HomeCategoriesHolder;
+import news.factory.com.base.base_recycler.view_holders.home_page_all_articles.AllArticlesHolder;
+import news.factory.com.base.base_recycler.view_holders.home_page_categories.HomePageCategoryNameHolder;
 
 public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements RecyclerAdapter {
 
@@ -45,6 +48,7 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
         dataList.clear();
         dataList.addAll(items);
         notifyDataSetChanged();
+
     }
 
     @NonNull
@@ -85,10 +89,16 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 return new ArticleItemHolder(view, dataList);
 
             case RecyclerWrapper.TYPE_HOME_PAGE_HEADER:
-                return new HomePageViewHolder(view, headerHomePageAdapter);
+                return new HomePageViewHolder(view, headerHomePageAdapter, dataList);
 
             case RecyclerWrapper.TYPE_HOME_PAGE_CATEGORY:
-                return new HomeCategoriesHolder(view);
+                return new HomePageCategoryNameHolder(view, dataList);
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_ALL_ARTICLES:
+                return new AllArticlesHolder(view);
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_NEWS_RECYCLER:
+                return new NewsCategoriesHolder(view, dataList);
 
             default: return new EmptyViewHolder(new View(parent.getContext()));
         }
@@ -154,8 +164,18 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 break;
 
             case RecyclerWrapper.TYPE_HOME_PAGE_CATEGORY:
-               HomeCategoriesHolder homeCategoriesHolder = (HomeCategoriesHolder) holder;
+               HomePageCategoryNameHolder homeCategoriesHolder = (HomePageCategoryNameHolder) holder;
                 homeCategoriesHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_ALL_ARTICLES:
+                AllArticlesHolder allArticlesHolder = (AllArticlesHolder) holder;
+                allArticlesHolder.onBind(position);
+                break;
+
+            case RecyclerWrapper.TYPE_HOME_PAGE_NEWS_RECYCLER:
+                NewsCategoriesHolder newsCategoriesHolder = (NewsCategoriesHolder) holder;
+                newsCategoriesHolder.onBind(position);
                 break;
 
         }
@@ -171,7 +191,6 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemViewType(int position) {
         return dataList.get(position).getType();
     }
-
 
 
     public void setHeaderHomePageAdapter(HeaderHomePagerAdapterImpl headerHomePageAdapter) {

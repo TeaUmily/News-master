@@ -32,10 +32,6 @@ public class ArticleCategoriesHolder extends RecyclerView.ViewHolder {
 
         tabLayout.setupWithViewPager(viewPager);
 
-//        tabLayout.newTab().setText(Constants.MOST_POPULAR);
-//        tabLayout.newTab().setText(Constants.MOST_READ);
-//        tabLayout.newTab().setText(Constants.NEWEST);
-
     }
 
     public void onBind(int position) {

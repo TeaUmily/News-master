@@ -2,13 +2,14 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="484dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/image_header_home_page"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="225dp"
+        android:scaleType="fitXY"
         android:background="@color/gray_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +25,12 @@
         android:background="@drawable/rectangle_shape"
         android:fontFamily="@font/roboto"
         android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:paddingBottom="3dp"
         android:paddingLeft="7dp"
         android:paddingRight="8dp"
         android:paddingTop="3dp"
-        android:text="Nogomet"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/image_header_home_page"
         app:layout_constraintStart_toStartOf="parent" />

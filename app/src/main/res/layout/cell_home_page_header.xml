@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="349dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
   <android.support.v4.view.ViewPager
       android:id="@+id/home_page_header_viewpager"
@@ -35,18 +35,28 @@
       android:id="@+id/title_header_home_page"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="8dp"
       android:fontFamily="@font/roboto_slab"
-      android:text="Ronalod šokirao javnost izjavom nakon utakmice. Bilo je lijepo u Madridu..."
       android:textColor="@color/black"
       android:textSize="20sp"
       android:textStyle="bold"
-      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/tablayout_header" />
+
+  <View
+      android:id="@+id/view"
+      android:layout_width="match_parent"
+      android:layout_height="9dp"
+      android:layout_marginTop="16dp"
+      android:background="@color/gray_color"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/title_header_home_page">
+
+  </View>
 
 </android.support.constraint.ConstraintLayout>

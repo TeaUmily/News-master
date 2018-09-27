@@ -42,4 +42,9 @@ public class Constants {
 
     public static final String NEWEST = "Najnovije";
 
+    public static final String INDEX = "index";
+
+    public static final String POSITION  = "0";
+
+
 }

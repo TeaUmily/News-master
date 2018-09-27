@@ -6,13 +6,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import news.factory.com.header_fragment.HeaderFragment;
+import news.factory.com.model.Articles;
 
 public class HeaderHomePagerAdapterImpl extends FragmentStatePagerAdapter implements HeaderHomePageAdapter{
 
     private int size;
+    private List<Articles> dataList;
 
     @Inject
     public HeaderHomePagerAdapterImpl(FragmentManager fm) {
@@ -22,7 +26,7 @@ public class HeaderHomePagerAdapterImpl extends FragmentStatePagerAdapter implem
     @Override
     public Fragment getItem(int position) {
 
-        return HeaderFragment.newInstance();
+        return HeaderFragment.newInstance(position , dataList);
     }
 
     @Override
@@ -34,4 +38,10 @@ public class HeaderHomePagerAdapterImpl extends FragmentStatePagerAdapter implem
     public void setSize(int size) {
         this.size = size;
     }
+
+    public void setDataList(List<Articles> dataList) {
+        this.dataList = dataList;
+    }
+
+
 }

@@ -4,8 +4,7 @@ package news.factory.com.base.base_recycler.view_holders.article_item;
 
 public class ArticleItemData {
 
-
-    private String featuredImageSource;
+    private String featuredImage;
 
     private String title;
 
@@ -15,20 +14,27 @@ public class ArticleItemData {
 
     private String numberOfShares;
 
-    public ArticleItemData(String featuredImageSource, String title, String publishedAtHumans, String category, String numberOfShares) {
-        this.featuredImageSource = featuredImageSource;
+    public ArticleItemData(String featuredImage, String title, String publishedAtHumans, String category, String numberOfShares) {
+        this.featuredImage = featuredImage;
         this.title = title;
         this.publishedAtHumans = publishedAtHumans;
         this.category = category;
         this.numberOfShares = numberOfShares;
     }
 
-    public String getFeaturedImageSource() {
-        return featuredImageSource;
+    public ArticleItemData(String featuredImage, String title, String category, String shares) {
+        this.featuredImage = featuredImage;
+        this.title = title;
+        this.category = category;
+        this.numberOfShares = shares;
     }
 
-    public void setFeaturedImageSource(String featuredImageSource) {
-        this.featuredImageSource = featuredImageSource;
+    public String getFeaturedImage() {
+        return featuredImage;
+    }
+
+    public void setFeaturedImage(String featuredImage) {
+        this.featuredImage = featuredImage;
     }
 
     public String getTitle() {
