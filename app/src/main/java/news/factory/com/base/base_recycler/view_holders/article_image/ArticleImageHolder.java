@@ -12,8 +12,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import news.factory.com.R;
-import news.factory.com.article_fragment.ArticleContract;
-import news.factory.com.article_fragment.ArticlePresenter;
+import news.factory.com.single_screen.article_fragment.ArticleContract;
+import news.factory.com.single_screen.article_fragment.ArticlePresenter;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 
 public class ArticleImageHolder extends RecyclerView.ViewHolder {

@@ -2,13 +2,11 @@ package news.factory.com.base.base_recycler.view_holders.article_categories;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import javax.inject.Inject;
 
-import news.factory.com.R;
-import news.factory.com.article_categories_fragment.CategoriesFragment;
+import news.factory.com.single_screen.article_categories_fragment.CategoriesFragment;
 import news.factory.com.constants.Constants;
 
 public class CategoriesPagerAdapterImpl extends FragmentStatePagerAdapter implements CategoriesPagerAdapter{

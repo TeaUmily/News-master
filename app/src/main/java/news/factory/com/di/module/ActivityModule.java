@@ -3,10 +3,10 @@ package news.factory.com.di.module;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import news.factory.com.home_activity.HomeActivity;
-import news.factory.com.home_activity.di.HomeActivityModule;
-import news.factory.com.single_activity.di.SingleActivityModule;
-import news.factory.com.single_activity.SingleActivity;
+import news.factory.com.home_screen.home_activity.HomeActivity;
+import news.factory.com.home_screen.home_activity.di.HomeActivityModule;
+import news.factory.com.single_screen.single_activity.di.SingleActivityModule;
+import news.factory.com.single_screen.single_activity.SingleActivity;
 import news.factory.com.scopes.PerActivity;
 
 @Module

@@ -11,7 +11,6 @@ import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import news.factory.com.App;
-import news.factory.com.article_categories_fragment.di.CategoriesFragmentModule;
 import news.factory.com.di.module.ActivityModule;
 import news.factory.com.di.module.AppModule;
 import news.factory.com.di.module.FragmentModule;

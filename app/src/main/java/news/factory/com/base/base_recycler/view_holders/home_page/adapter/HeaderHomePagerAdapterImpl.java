@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import news.factory.com.header_fragment.HeaderFragment;
+import news.factory.com.home_screen.header_fragment.HeaderFragment;
 import news.factory.com.model.Articles;
 
 public class HeaderHomePagerAdapterImpl extends FragmentStatePagerAdapter implements HeaderHomePageAdapter{

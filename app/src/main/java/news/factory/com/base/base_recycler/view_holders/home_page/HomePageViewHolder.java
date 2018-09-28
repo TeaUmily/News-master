@@ -5,21 +5,20 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemSelected;
+import butterknife.OnClick;
 import butterknife.OnPageChange;
 import news.factory.com.R;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
-import news.factory.com.base.base_recycler.view_holders.home_news_categories.NewsCategoriesData;
 import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePagerAdapterImpl;
-import news.factory.com.base.base_recycler.view_holders.home_page_categories.HomePageCategoryNameData;
-import news.factory.com.model.Image;
+import news.factory.com.home_screen.home_page_fragment.HomePageFragmentContract;
+import news.factory.com.home_screen.home_page_fragment.HomePageFragmentPresenter;
+
 
 public class HomePageViewHolder extends RecyclerView.ViewHolder {
 
@@ -35,11 +34,15 @@ public class HomePageViewHolder extends RecyclerView.ViewHolder {
     private HeaderHomePagerAdapterImpl adapter;
     private List<RecyclerWrapper> dataList;
     private HomePageHeaderData data;
+    private Object object;
 
-    public HomePageViewHolder(View itemView, HeaderHomePagerAdapterImpl adapter, List<RecyclerWrapper> list) {
+    private String articleId;
+
+    public HomePageViewHolder(Object presenter, View itemView, HeaderHomePagerAdapterImpl adapter, List<RecyclerWrapper> list) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.dataList = list;
+        this.object = presenter;
         this.adapter = adapter;
 
     }
@@ -47,6 +50,7 @@ public class HomePageViewHolder extends RecyclerView.ViewHolder {
     public void onBind(int position) {
 
         if (position != RecyclerView.NO_POSITION) {
+
 
             data = (HomePageHeaderData) dataList.get(position).getData();
             adapter.setSize(data.getArticles().size());
@@ -56,6 +60,8 @@ public class HomePageViewHolder extends RecyclerView.ViewHolder {
 
             int index = viewPager.getCurrentItem();
             title.setText(data.getArticles().get(index).getTitle());
+
+            articleId = data.getArticles().get(index).getId();
         }
 
     }
@@ -65,4 +71,21 @@ public class HomePageViewHolder extends RecyclerView.ViewHolder {
         int position = viewPager.getCurrentItem();
         title.setText(data.getArticles().get(position).getTitle());
     }
+
+
+    @OnClick
+    public void onArticleClick(){
+
+        HomePageFragmentContract.Presenter presenter;
+
+        if(object instanceof HomePageFragmentPresenter){
+            presenter = (HomePageFragmentPresenter) object;
+            presenter.openArticle(articleId);
+        }
+
+
+    }
+
+
+
 }

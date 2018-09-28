@@ -24,7 +24,6 @@ import news.factory.com.base.base_recycler.view_holders.article_publication_date
 import news.factory.com.base.base_recycler.view_holders.article_text.ArticleTextHolder;
 import news.factory.com.base.base_recycler.view_holders.article_title.ArticleTitleHolder;
 import news.factory.com.base.base_recycler.view_holders.article_upper_tittle.ArticleUpperTitleHolder;
-import news.factory.com.base.base_recycler.view_holders.home_news_categories.NewsCategoriesHolder;
 import news.factory.com.base.base_recycler.view_holders.home_page.HomePageViewHolder;
 import news.factory.com.base.base_recycler.view_holders.home_page.adapter.HeaderHomePagerAdapterImpl;
 import news.factory.com.base.base_recycler.view_holders.home_page_all_articles.AllArticlesHolder;
@@ -48,7 +47,6 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
         dataList.clear();
         dataList.addAll(items);
         notifyDataSetChanged();
-
     }
 
     @NonNull
@@ -86,10 +84,10 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 return new ArticleCategoriesHolder(view, categoriesPagerAdapter);
 
             case RecyclerWrapper.TYPE_ARTIClE_ITEM:
-                return new ArticleItemHolder(view, dataList);
+                return new ArticleItemHolder(view, dataList, presenter);
 
             case RecyclerWrapper.TYPE_HOME_PAGE_HEADER:
-                return new HomePageViewHolder(view, headerHomePageAdapter, dataList);
+                return new HomePageViewHolder(presenter,view, headerHomePageAdapter, dataList);
 
             case RecyclerWrapper.TYPE_HOME_PAGE_CATEGORY:
                 return new HomePageCategoryNameHolder(view, dataList);
@@ -97,8 +95,6 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
             case RecyclerWrapper.TYPE_HOME_PAGE_ALL_ARTICLES:
                 return new AllArticlesHolder(view);
 
-            case RecyclerWrapper.TYPE_HOME_PAGE_NEWS_RECYCLER:
-                return new NewsCategoriesHolder(view, dataList);
 
             default: return new EmptyViewHolder(new View(parent.getContext()));
         }
@@ -173,10 +169,6 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<RecyclerView.ViewH
                 allArticlesHolder.onBind(position);
                 break;
 
-            case RecyclerWrapper.TYPE_HOME_PAGE_NEWS_RECYCLER:
-                NewsCategoriesHolder newsCategoriesHolder = (NewsCategoriesHolder) holder;
-                newsCategoriesHolder.onBind(position);
-                break;
 
         }
     }

@@ -1,7 +1,6 @@
 package news.factory.com.base.base_recycler.view_holders.article_item;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import news.factory.com.R;
 import news.factory.com.base.base_recycler.RecyclerWrapper;
 import news.factory.com.constants.Constants;
@@ -35,12 +33,14 @@ public class ArticleItemHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.publication_time_item)
     TextView publicationTime;
 
-    List<RecyclerWrapper> dataList;
+    private List<RecyclerWrapper> dataList;
+    private Object object;
+    private String aricleId;
 
-    public ArticleItemHolder(View itemView, List<RecyclerWrapper> list) {
+    public ArticleItemHolder(View itemView, List<RecyclerWrapper> list, Object presenter) {
         super(itemView);
         this.dataList = list;
-
+        this.object = presenter;
         ButterKnife.bind(this, itemView);
     }
 
@@ -53,6 +53,12 @@ public class ArticleItemHolder extends RecyclerView.ViewHolder {
             numberOfShares.setText(data.getNumberOfShares());
             publicationTime.setText(data.getPublishedAtHumans());
 
+            aricleId = data.getArticeId();
+
         }
     }
+
+
+
+
 }

@@ -4,6 +4,8 @@ import news.factory.com.helpers.listeners.NetworkResponseListener;
 
 public interface HomeScreenInteractor {
 
-    void getHomeScreenArticles(NetworkResponseListener listener, String Token, String index );
+    void getHomeScreenArticles(NetworkResponseListener listener, String token, String index );
+
+    void getHomeScreenBottomTitles (NetworkResponseListener listener, String token, String path);
 
 }

@@ -11,6 +11,7 @@ import io.reactivex.schedulers.Schedulers;
 import news.factory.com.base.base_interactor.BaseInteractor;
 import news.factory.com.base.base_interactor.InteractorWrapper;
 import news.factory.com.helpers.listeners.NetworkResponseListener;
+import news.factory.com.model.HomeMenuBottomItem;
 import news.factory.com.model.HomePageArticles;
 import news.factory.com.networking.ApiService;
 
@@ -40,4 +41,22 @@ public class HomeScreenInteractorImpl extends BaseInteractor implements HomeScre
                 .subscribe(provideDisposableObserver(listener));
 
     }
+
+    @Override
+    public void getHomeScreenBottomTitles(NetworkResponseListener listener, String token, String path) {
+
+        apiService.getBottomTitles(path, token).subscribeOn(Schedulers.io())
+                .map(new Function<List<HomeMenuBottomItem>, InteractorWrapper>() {
+                    @Override
+                    public InteractorWrapper apply(List<HomeMenuBottomItem> list) throws Exception {
+                        InteractorWrapper data = new InteractorWrapper(list);
+                        return data;
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(provideDisposableObserver(listener));
+
+    }
+
+
 }

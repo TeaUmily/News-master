@@ -46,5 +46,8 @@ public class Constants {
 
     public static final String POSITION  = "0";
 
+    public static final String POSITION_MAIN_PAGER= "1";
+
+    public static final String MENU_BOTTOM = "menu-bottom";
 
 }
